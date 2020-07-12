@@ -1,0 +1,60 @@
+@import "functions";
+@import "typography";
+
+@charset "utf-8";
+
+/******************/
+/* general layout */
+/******************/
+
+.arrow {
+	font-family: "Inter var", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif !important;
+}
+
+/***************/
+/* page header */
+/***************/
+
+.entry-header {
+	.post-meta {
+		.meta-text {
+			a {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+/****************/
+/* page content */
+/****************/
+
+.container {
+	.post-inner {
+		&.aside {
+			h3 {
+				.dashicons {
+					margin-top: 6px;
+					margin-right: 10px;
+					width: auto;
+					height: auto;
+					font-size: inherit;
+				}
+			}
+
+			ul {
+				list-style: none;
+
+				li {
+					margin-left: 0;
+				}
+			}
+		}
+	}
+}
+
+/**************/
+/* responsive */
+/**************/
+
+@import "responsive";

@@ -1,0 +1,28 @@
+<wpml-config>
+	<custom-fields>
+		<custom-field action="copy">acf-floor_floor_number</custom-field>
+		<custom-field action="ignore">acf-floor_text</custom-field>
+		<custom-field action="ignore">acf-floor_central_questions</custom-field>
+		<custom-field action="copy">acf-display-center_curator_number</custom-field>
+		<custom-field action="ignore">acf-display-center_one_line_description</custom-field>
+		<custom-field action="ignore">acf-display-center_master_label</custom-field>
+		<custom-field action="copy">acf-display-center_location</custom-field>
+		<custom-field action="copy">acf-display-center_media</custom-field>
+		<custom-field action="copy">acf-display-center_floor</custom-field>
+		<custom-field action="copy">acf-exhibit_curator_number</custom-field>
+		<custom-field action="ignore">acf-exhibit_must_know</custom-field>
+		<custom-field action="ignore">acf-exhibit_good_for_guiding</custom-field>
+		<custom-field action="copy">acf-exhibit_interactive</custom-field>
+		<custom-field action="ignore">acf-exhibit_more_sources</custom-field>
+		<custom-field action="copy">acf-exhibit_display_center</custom-field>
+	</custom-fields>
+	<custom-types>
+		<custom-type translate="1">floor</custom-type>
+		<custom-type translate="1">display_center</custom-type>
+		<custom-type translate="1">exhibit</custom-type>
+	</custom-types>
+	<taxonomies>
+		<taxonomy translate="1">theme</taxonomy>
+		<taxonomy translate="1">hashtag</taxonomy>
+	</taxonomies>
+</wpml-config>

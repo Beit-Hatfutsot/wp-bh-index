@@ -1,0 +1,42 @@
+@import "functions";
+@import "typography";
+
+@charset "utf-8";
+
+/**********/
+/* header */
+/**********/
+
+.nav-toggle {
+	right: auto;
+}
+
+/****************/
+/* page content */
+/****************/
+
+.container {
+	.post-inner {
+		&.aside {
+			h3 {
+				.dashicons {
+					margin-left: 10px;
+					margin-right: auto;
+				}
+			}
+
+			ul {
+				li {
+					margin-left: auto;
+					margin-right: 0;
+				}
+			}
+		}
+	}
+}
+
+/**************/
+/* responsive */
+/**************/
+
+@import "responsive_rtl";
