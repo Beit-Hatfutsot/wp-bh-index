@@ -31,7 +31,7 @@ function bh_idx_the_post_meta( $post_id ) {
 			$exhibit_number				= bh_idx_get_exhibit_number( $post_id );
 
 			$meta[2] = array(
-				'icon'	=> 'products',
+				'icon'	=> 'format-image',
 				'title'	=> __( 'Exhibit', 'twentytwenty-child' ) . ' ' . $exhibit_number,
 			);
 

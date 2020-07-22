@@ -194,7 +194,7 @@ function bh_idx_register_exhibit_post_type() {
 		'show_in_menu'				=> true,
 		'show_in_admin_bar'			=> true,
 		'menu_position'				=> 25.3,
-		'menu_icon'					=> 'dashicons-products',
+		'menu_icon'					=> 'dashicons-format-image',
 		'capability_type'			=> 'post',
 		'hierarchical'				=> false,
 		'supports'					=> array( 'title', 'thumbnail' ),

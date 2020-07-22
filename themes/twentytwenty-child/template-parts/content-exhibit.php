@@ -22,16 +22,35 @@ if ( ! defined( 'ACF_EXISTS' ) || ! ACF_EXISTS )
 		get_template_part( 'template-parts/entry-header' );
 	?>
 
-	<div class="post-inner <?php echo is_page_template( 'templates/template-full-width.php' ) ? '' : 'thin'; ?> ">
+	<div class="container section-inner">
 
-		<?php
-			/**
-			 * display center content
-			 */
-			get_template_part( 'template-parts/exhibit/exhibit-content' );
-		?>
+		<div class="post-inner <?php echo is_page_template( 'templates/template-full-width.php' ) ? '' : 'thin'; ?> ">
 
-	</div><!-- .post-inner -->
+			<?php
+				/**
+				 * display center content
+				 */
+				get_template_part( 'template-parts/exhibit/exhibit-content' );
+			?>
+
+		</div><!-- .post-inner -->
+
+		<div class="post-inner aside">
+
+			<div class="entry-content">
+
+				<?php
+					/**
+					 * display featured image
+					 */
+					get_template_part( 'template-parts/featured-image' );
+				?>
+
+			</div><!-- .entry-content -->
+
+		</div><!-- .aside -->
+
+	</div><!-- .container -->
 
 	<?php
 		/**

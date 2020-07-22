@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wp-bh-index 1.0.0\n"
-"POT-Creation-Date: 2020-07-12 17:43+0300\n"
-"PO-Revision-Date: 2020-07-12 17:45+0300\n"
+"POT-Creation-Date: 2020-07-12 21:54+0300\n"
+"PO-Revision-Date: 2020-07-12 21:59+0300\n"
 "Last-Translator: Nir Goldberg <nir@htmline.com>\n"
 "Language-Team: Nir Goldberg <nir@htmline.com>\n"
 "Language: he_IL\n"
@@ -120,7 +120,7 @@ msgstr "%s עודכן/ה"
 msgid "Floors"
 msgstr "קומות"
 
-#: functions/post-types.php:91 functions/theme.php:49
+#: functions/post-types.php:91 functions/theme.php:53
 msgid "Floor"
 msgstr "קומה"
 
@@ -129,15 +129,16 @@ msgstr "קומה"
 msgid "Display Centers"
 msgstr "מוקדים"
 
-#: functions/post-types.php:137 functions/theme.php:43
+#: functions/post-types.php:137 functions/theme.php:44
 msgid "Display Center"
 msgstr "מוקד"
 
 #: functions/post-types.php:182
+#: template-parts/display-center/display-center-exhibits.php:21
 msgid "Exhibits"
 msgstr "מוצגים"
 
-#: functions/post-types.php:183 functions/theme.php:37
+#: functions/post-types.php:183 functions/theme.php:35
 msgid "Exhibit"
 msgstr "מוצג"
 
@@ -212,6 +213,18 @@ msgstr "מדיה"
 #: template-parts/entry-header.php:37
 msgid "Categories"
 msgstr ""
+
+#: template-parts/exhibit/exhibit-content.php:30
+msgid "Must Know"
+msgstr "חייב לדעת"
+
+#: template-parts/exhibit/exhibit-content.php:42
+msgid "Good for Guiding"
+msgstr "כדאי להדריך"
+
+#: template-parts/exhibit/exhibit-content.php:54
+msgid "More Sources"
+msgstr "מקורות נוספים"
 
 #: template-parts/floor/floor-content.php:30
 msgid "Central Questions"

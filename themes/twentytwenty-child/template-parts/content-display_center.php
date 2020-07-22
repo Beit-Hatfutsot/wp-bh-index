@@ -37,12 +37,23 @@ if ( ! defined( 'ACF_EXISTS' ) || ! ACF_EXISTS )
 
 		<div class="post-inner aside">
 
-			<?php
-				/**
-				 * display exhibits
-				 */
-				get_template_part( 'template-parts/display-center/display-center-exhibits' );
-			?>
+			<div class="entry-content">
+
+				<?php
+					/**
+					 * display featured image
+					 */
+					get_template_part( 'template-parts/featured-image' );
+				?>
+
+				<?php
+					/**
+					 * display exhibits
+					 */
+					get_template_part( 'template-parts/display-center/display-center-exhibits' );
+				?>
+
+			</div><!-- .entry-content -->
 
 		</div><!-- .aside -->
 

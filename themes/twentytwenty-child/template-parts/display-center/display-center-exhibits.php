@@ -16,18 +16,14 @@ if ( ! $exhibits )
 
 ?>
 
-<div class="entry-content">
+<h3><span class="dashicons dashicons-format-image"></span><?php _e( 'Exhibits', 'twentytwenty-child' ); ?></h3>
 
-	<h3><span class="dashicons dashicons-products"></span><?php _e( 'Exhibits', 'twentytwenty-child' ); ?></h3>
+<ul class="exhibits">
 
-	<ul class="exhibits">
+	<?php foreach ( $exhibits as $e ) {
 
-		<?php foreach ( $exhibits as $e ) {
+		echo '<li><a href="' . esc_url( get_permalink( $e->ID ) ) . '">' . $e->post_title . '</a> (' . bh_idx_get_exhibit_number( $e->ID ) . ')</li>';
 
-			echo '<li><a href="' . esc_url( get_permalink( $e->ID ) ) . '">' . $e->post_title . '</a> (' . bh_idx_get_exhibit_number( $e->ID ) . ')</li>';
+	} ?>
 
-		} ?>
-
-	</ul><!-- .exhibits -->
-
-</div><!-- .entry-content -->
+</ul><!-- .exhibits -->
