@@ -451,7 +451,7 @@ function bh_idx_get_adjacent_posts( $post_id ) {
  * @param	$args (array)
  * @return	(array)
  */
-function bh_idx_get_nav_menu_items( array $items, object $menu, array $args ) {
+function bh_idx_get_nav_menu_items( $items, $menu, $args ) {
 
 	if ( ! $items )
 		return $items;
