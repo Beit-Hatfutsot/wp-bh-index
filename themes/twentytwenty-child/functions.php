@@ -23,5 +23,8 @@ require_once( 'functions/post-types.php' );
 // taxonomies
 require_once( 'functions/taxonomies.php' );
 
+// shortcodes
+require_once( 'functions/shortcodes.php' );
+
 // wp all import
 require_once( 'functions/wp-all-import.php' );
