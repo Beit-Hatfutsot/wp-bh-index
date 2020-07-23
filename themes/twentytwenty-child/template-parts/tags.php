@@ -18,13 +18,13 @@ $taxonomy	= '';
 
 switch ( get_post_type() ) {
 	case 'floor':
-		$title		= __( 'Themes', 'twentytwenty-child' ) . ': ';
+		$title		= __( 'Themes and Connections', 'twentytwenty-child' ) . ': ';
 		$taxonomy	= 'theme';
 		break;
 
 	case 'display_center':
 	case 'exhibit':
-		$title		= __( 'Hashtags', 'twentytwenty-child' ) . ': ';
+		$title		= __( 'Themes and Connections', 'twentytwenty-child' ) . ': ';
 		$taxonomy	= 'hashtag';
 }
 

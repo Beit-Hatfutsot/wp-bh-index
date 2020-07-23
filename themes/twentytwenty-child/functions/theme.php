@@ -28,20 +28,22 @@ function bh_idx_the_post_meta( $post_id ) {
 
 	switch ( get_post_type() ) {
 		case 'exhibit':
-			$exhibit_number				= bh_idx_get_exhibit_number( $post_id );
+			$exhibit_number		= bh_idx_get_exhibit_number( $post_id );
 
 			$meta[2] = array(
-				'icon'	=> 'format-image',
-				'title'	=> __( 'Exhibit', 'twentytwenty-child' ) . ' ' . $exhibit_number,
+				'icon'			=> 'format-image',
+				'title'			=> __( 'Exhibit', 'twentytwenty-child' ) . ' ' . $exhibit_number,
+				'interactive'	=> get_field( 'acf-exhibit_interactive', $post_id ),
 			);
 
 		case 'display_center':
 			$display_center_number		= bh_idx_get_display_center_number( $post_id );
 			$display_center_permalink	= bh_idx_get_display_center_permalink( $display_center_number );
+			$display_center_title		= isset( $meta[2] ) ? bh_idx_get_display_center_title( $display_center_number ) . ' (' . $display_center_number . ')' : __( 'Display Center', 'twentytwenty-child' ) . ' ' . $display_center_number;
 
 			$meta[1] = array(
 				'icon'	=> 'store',
-				'title'	=> ( isset( $meta[2] ) ? '<a href="' . $display_center_permalink . '">' : '' ) . __( 'Display Center', 'twentytwenty-child' ) . ' ' . $display_center_number . ( isset( $meta[2] ) ? '</a>' : '' ),
+				'title'	=> ( isset( $meta[2] ) ? '<a href="' . $display_center_permalink . '">' : '' ) . $display_center_title . ( isset( $meta[2] ) ? '</a>' : '' ),
 			);
 
 		case 'floor':
@@ -70,7 +72,7 @@ function bh_idx_the_post_meta( $post_id ) {
 						<span class="screen-reader-text"><?php echo $m[ 'title' ]; ?></span>
 						<span class="dashicons dashicons-<?php echo $m[ 'icon' ]; ?>"></span>
 					</span>
-					<span class="meta-text"><?php echo $m[ 'title' ]; ?></span>
+					<span class="meta-text"><?php echo $m[ 'title' ] . ( isset( $m[ 'interactive' ] ) && $m[ 'interactive' ] ? ' (' . __( 'interactive', 'twentytwenty-child' ) . ')' : '' ); ?></span>
 				</li>
 			<?php } ?>
 
@@ -208,7 +210,7 @@ function bh_idx_get_display_center_number( $post_id ) {
  *
  * This function returns display center permalink by display center number
  *
- * @param	$floor_number (int)
+ * @param	$display_center_number (int)
  * @return	(string)
  */
 function bh_idx_get_display_center_permalink( $display_center_number ) {
@@ -234,6 +236,40 @@ function bh_idx_get_display_center_permalink( $display_center_number ) {
 
 	// return
 	return $p ? get_permalink( $p->ID ) : '';
+
+}
+
+/**
+ * bh_idx_get_display_center_title
+ *
+ * This function returns display center title by display center number
+ *
+ * @param	$display_center_number (int)
+ * @return	(string)
+ */
+function bh_idx_get_display_center_title( $display_center_number ) {
+
+	if ( ! defined( 'ACF_EXISTS' ) || ! ACF_EXISTS || ! $display_center_number )
+		return '';
+
+	$args = array(
+		'post_type'			=> 'display_center',
+		'posts_per_page'	=> 1,
+		'meta_key'			=> 'acf-display-center_curator_number',
+		'meta_value'		=> $display_center_number,
+	);
+	$posts = new WP_Query( $args );
+
+	if ( $posts->have_posts() ) : while ( $posts->have_posts() ) : $posts->the_post();
+
+		$p = $posts->post;
+
+	endwhile; endif;
+
+	wp_reset_postdata();
+
+	// return
+	return $p ? $p->post_title : '';
 
 }
 

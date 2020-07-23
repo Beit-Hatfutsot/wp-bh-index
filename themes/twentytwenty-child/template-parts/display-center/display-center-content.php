@@ -23,7 +23,17 @@ $media					= get_field( 'acf-display-center_media' );
 
 <div class="entry-content">
 
-	<?php echo $one_line_description; ?>
+	<?php if ( $one_line_description ) { ?>
+
+		<div class="entry-one-line-description">
+
+			<h2 class="section-title"><?php _e( 'One Line Description', 'twentytwenty-child' ); ?></h2>
+
+			<?php echo $one_line_description; ?>
+
+		</div><!-- .entry-one-line-description -->
+
+	<?php } ?>
 
 	<?php if ( $master_label ) { ?>
 

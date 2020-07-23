@@ -16,7 +16,6 @@ if ( ! defined( 'ACF_EXISTS' ) || ! ACF_EXISTS )
  */
 $must_know			= get_field( 'acf-exhibit_must_know' );
 $good_for_guiding	= get_field( 'acf-exhibit_good_for_guiding' );
-$interactive		= get_field( 'acf-exhibit_interactive' );
 $more_sources		= get_field( 'acf-exhibit_more_sources' );
 
 ?>
@@ -51,7 +50,7 @@ $more_sources		= get_field( 'acf-exhibit_more_sources' );
 
 		<div class="entry-more-sources">
 
-			<h2 class="section-title"><?php _e( 'More Sources', 'twentytwenty-child' ); ?></h2>
+			<h2 class="section-title"><?php _e( 'Additional Reading', 'twentytwenty-child' ); ?></h2>
 
 			<?php echo $more_sources; ?>
 
