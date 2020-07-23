@@ -36,11 +36,13 @@ $more_sources		= get_field( 'acf-exhibit_more_sources' );
 
 	<?php if ( $good_for_guiding ) { ?>
 
-		<div class="entry-good-for-guiding">
+		<div class="entry-good-for-guiding toggle-section">
 
-			<h2 class="section-title"><?php _e( 'Good for Guiding', 'twentytwenty-child' ); ?></h2>
+			<h2 class="section-title"><?php _e( 'Good for Guiding', 'twentytwenty-child' ); ?><span class="close"></span></h2>
 
-			<?php echo $good_for_guiding; ?>
+			<div class="toggle-content close">
+				<?php echo $good_for_guiding; ?>
+			</div>
 
 		</div><!-- .entry-good-for-guiding -->
 
@@ -48,11 +50,13 @@ $more_sources		= get_field( 'acf-exhibit_more_sources' );
 
 	<?php if ( $more_sources ) { ?>
 
-		<div class="entry-more-sources">
+		<div class="entry-more-sources toggle-section">
 
-			<h2 class="section-title"><?php _e( 'Additional Reading', 'twentytwenty-child' ); ?></h2>
+			<h2 class="section-title"><?php _e( 'Additional Reading', 'twentytwenty-child' ); ?><span class="close"></span></h2>
 
-			<?php echo $more_sources; ?>
+			<div class="toggle-content close">
+				<?php echo $more_sources; ?>
+			</div>
 
 		</div><!-- .entry-more-sources -->
 

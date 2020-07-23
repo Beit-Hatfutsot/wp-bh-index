@@ -63,8 +63,8 @@ function bh_idx_wp_scripts_n_styles() {
 	/**
 	 * Scripts
 	 */
-//	wp_register_script( 'general',		JS_DIR . 'general.js',			array( 'jquery' ),	VERSION,	true );
+	wp_register_script( 'general',		JS_DIR . 'general.min.js',		array( 'jquery' ),	VERSION,	true );
 
-//	wp_enqueue_script( 'general' );
+	wp_enqueue_script( 'general' );
 
 }

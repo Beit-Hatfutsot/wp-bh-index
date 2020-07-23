@@ -17,6 +17,15 @@
 
 .container {
 	.post-inner {
+		.toggle-section {
+			& > h2 {
+				span {
+					left: 5px;
+					right: auto;
+				}
+			}
+		}
+
 		&.aside {
 			h3 {
 				.dashicons {

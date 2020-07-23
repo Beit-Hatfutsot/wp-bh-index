@@ -32,7 +32,7 @@ define( 'VERSION',				$theme_version );
 define( 'SITE_URL',				get_site_url() );
 define( 'TEMPLATE',				get_stylesheet_directory_uri() );
 define( 'CSS_DIR',				TEMPLATE . '/assets/css/' );
-define( 'JS_DIR',				TEMPLATE . '/assets/js/' );
+define( 'JS_DIR',				TEMPLATE . '/assets/js/min/' );
 define( 'PAGE_TEMPLATE_PATH',	'page-templates/' );
 define( 'ACF_EXISTS',			function_exists( 'get_field' ) );
 
