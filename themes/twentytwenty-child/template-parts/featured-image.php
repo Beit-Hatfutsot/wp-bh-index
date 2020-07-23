@@ -26,6 +26,6 @@ $image_alt	= get_post_meta( $image_id, '_wp_attachment_image_alt', true );
 
 <div class="featured-image">
 
-	<img src="<?php echo $image_att[0]; ?>" alt="<?php echo $image_alt ?: ''; ?>" />
+	<a href="<?php echo $image_att[0]; ?>" target="_blank"><img src="<?php echo $image_att[0]; ?>" alt="<?php echo $image_alt ?: ''; ?>" /></a>
 
 </div>
