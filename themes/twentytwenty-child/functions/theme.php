@@ -440,3 +440,32 @@ function bh_idx_get_adjacent_posts( $post_id ) {
 	return $adjacent_posts;
 
 }
+
+/**
+ * bh_idx_get_nav_menu_items
+ *
+ * This function adds a prefix for floor objects menu items
+ *
+ * @param	$items (array)
+ * @param	$menu (object)
+ * @param	$args (array)
+ * @return	(array)
+ */
+function bh_idx_get_nav_menu_items( array $items, object $menu, array $args ) {
+
+	if ( ! $items )
+		return $items;
+
+	foreach ( $items as $item ) {
+		if ( 'floor' == $item->object ) {
+			$post_id = $item->object_id;
+			$floor_number = bh_idx_get_floor_number( $post_id );
+			$item->title = __( 'Floor', 'twentytwenty-child' ) . ' ' . $floor_number . ': ' . $item->title;
+		}
+	}
+
+	// return
+	return $items;
+
+}
+add_filter( 'wp_get_nav_menu_items', 'bh_idx_get_nav_menu_items', 10, 3 );
