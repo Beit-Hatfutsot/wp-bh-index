@@ -8,8 +8,14 @@
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-$next_post = get_next_post();
-$prev_post = get_previous_post();
+$adjacent_posts = bh_idx_get_adjacent_posts( $post->ID );
+
+if ( $adjacent_posts ) {
+
+	$next_post = isset( $adjacent_posts[ 'next' ] ) ? $adjacent_posts[ 'next' ] : '';
+	$prev_post = isset( $adjacent_posts[ 'prev' ] ) ? $adjacent_posts[ 'prev' ] : '';
+
+}
 
 if ( $next_post || $prev_post ) {
 

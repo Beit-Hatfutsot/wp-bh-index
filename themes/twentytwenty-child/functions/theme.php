@@ -354,3 +354,53 @@ function bh_idx_get_exhibits( $post_id ) {
 	return $exhibits;
 
 }
+
+/**
+ * bh_idx_get_adjacent_posts
+ *
+ * This function returns array of next and previous posts by their menu order
+ *
+ * @param	$post_id (int)
+ * @return	(array)
+ */
+function bh_idx_get_adjacent_posts( $post_id ) {
+
+	/**
+	 * Variables
+	 */
+	$post			= get_post( $post_id );
+	$post_parent	= $post->post_parent;
+	$adjacent_posts	= array(
+		'next_post'	=> '',
+		'prev_post'	=> '',
+	);
+
+	// get all posts related to current post
+	$args = array(
+		'post_type'		=> get_post_type( $post_id ),
+		'child_of'		=> $post_parent,
+		'parent'		=> $post_parent,
+		'sort_column'	=> 'menu_order',
+		'sort_order'	=> 'ASC',
+	);
+	$posts = get_pages( $args );
+
+	$nummber_of_posts = count( $posts );
+
+	if ( $nummber_of_posts <= 1 )
+		return $adjacent_posts;
+
+	// loop
+	for ( $p = 0 ; $p < count( $posts ) ; $p++ ) {
+		if ( $post_id == $posts[ $p ]->ID )
+			// current post key been found
+			break;
+	}
+
+	$adjacent_posts[ 'next' ] = isset( $posts[ $p+1 ] ) ? $posts[ $p+1 ] : '';
+	$adjacent_posts[ 'prev' ] = isset( $posts[ $p-1 ] ) ? $posts[ $p-1 ] : '';
+
+	// return
+	return $adjacent_posts;
+
+}

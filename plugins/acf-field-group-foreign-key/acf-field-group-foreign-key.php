@@ -50,7 +50,7 @@ class htmline_acf_plugin_field_group_foreign_key {
 
 		// include field
 		add_action('acf/include_field_types', 	array($this, 'include_field')); // v5
-		add_action('acf/register_fields', 		array($this, 'include_field')); // v4
+		//add_action('acf/register_fields', 		array($this, 'include_field')); // v4
 	}
 
 
