@@ -55,10 +55,11 @@ function acf_get_posts_foreign_key_values( $field ) {
 		return $arr;
 
 	$posts = new WP_Query(array(
-		'post_type'	=> $post_type,
-		'meta_key'	=> $field_obj[ 'name' ],
-		'orderby'	=> 'meta_value',
-		'order'		=> 'ASC',
+		'post_type'			=> $post_type,
+		'meta_key'			=> $field_obj[ 'name' ],
+		'posts_per_page'	=> -1,
+		'orderby'			=> 'meta_value',
+		'order'				=> 'ASC',
 	));
 
 	if ( $posts->have_posts() ) : while ( $posts->have_posts() ) : $posts->the_post();
