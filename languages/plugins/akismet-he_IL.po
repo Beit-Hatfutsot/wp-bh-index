@@ -2,14 +2,40 @@
 # This file is distributed under the same license as the Plugins - Akismet Anti-Spam - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-01-12 13:18:11+0000\n"
+"PO-Revision-Date: 2020-08-31 12:12:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/3.0.0-alpha\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
 "Language: he_IL\n"
 "Project-Id-Version: Plugins - Akismet Anti-Spam - Stable (latest release)\n"
+
+#. translators: The placeholder is for showing how much of the process has
+#. completed, as a percent. e.g., "Checking for Spam (40%)"
+#: class.akismet-admin.php:416
+msgid "Checking for Spam (%1$s%)"
+msgstr "בודק ספאם  (%1$s%)"
+
+#: class.akismet-admin.php:684
+msgid "No comment history."
+msgstr "אין הסטוריה לתגובה."
+
+#: class.akismet-admin.php:652
+msgid "Akismet was unable to recheck this comment."
+msgstr "אקיזמט לא הצליח לבדוק את התגובה הזו שוב."
+
+#: class.akismet-admin.php:644
+msgid "Akismet was unable to check this comment but will automatically retry later."
+msgstr "אקיזמט לא הצליח לבדוק את התגובה הזו, אבל ינסה שוב מאוחר יותר."
+
+#: class.akismet-admin.php:615
+msgid "Comment was caught by %s."
+msgstr "התגובה נלכדה על ידי %s."
+
+#: class.akismet.php:552
+msgid "Akismet is not configured. Please enter an API key."
+msgstr "אקיזמט אינו מוגדר. נא להזין מפתח API."
 
 #: views/enter.php:8
 msgid "Enter your API key"
@@ -19,6 +45,10 @@ msgstr "הזנת מפתח API"
 msgid "Set up a different account"
 msgstr "לחבר חשבון אחר"
 
+#: views/setup.php:2
+msgid "Set up your Akismet account to enable spam filtering on this site."
+msgstr "הגדירו את החשבון שלכם באקיזמט כדי להפעיל סינון ספאם באתר הזה."
+
 #: class.akismet-admin.php:1087
 msgid "Akismet could not recheck your comments for spam."
 msgstr "אקיזמט לא יכול היה לבדוק מחדש את התגובות שלך לספאם."
@@ -27,6 +57,10 @@ msgstr "אקיזמט לא יכול היה לבדוק מחדש את התגובו�
 msgid "You don't have permission to do that."
 msgstr "אין לך הרשאות לבצע את זה."
 
+#: class.akismet-cli.php:165
+msgid "Stats response could not be decoded."
+msgstr "לא ניתן היה לפרש את נתוני הסטטיסטיקה."
+
 #: class.akismet-cli.php:159
 msgid "Currently unable to fetch stats. Please try again."
 msgstr "נכון לעכשיו אין אפשרות להשיג נתונים סטטיסטיים. נא לנסות שוב."
@@ -34,6 +68,10 @@ msgstr "נכון לעכשיו אין אפשרות להשיג נתונים סטט
 #: class.akismet-cli.php:134
 msgid "API key must be set to fetch stats."
 msgstr "יש להגדיר מפתח API לקבלת נתונים סטטיסטיים."
+
+#: views/config.php:162
+msgid "To help your site with transparency under privacy laws like the GDPR, Akismet can display a notice to your users under your comment forms. This feature is disabled by default, however, you can turn it on above."
+msgstr "כדי לסייע לאתר שלך לעמוד בדרישות חוקי השקיפות של ה-GDPR, אקיזמט יכול  להציג הודעה למשתמשים שלך בטופסי התגובה באתר. אפשרות זו מושבתת כברירת מחדל, אולם ניתן להפעיל אותה לעיל."
 
 #: views/config.php:160
 msgid "Do not display privacy notice."
@@ -50,6 +88,10 @@ msgstr "הודעת פרטיות של אקיזמט"
 #: views/config.php:155
 msgid "Privacy"
 msgstr "פרטיות"
+
+#: class.akismet.php:1491
+msgid "This site uses Akismet to reduce spam. <a href=\"%s\" target=\"_blank\" rel=\"nofollow noopener\">Learn how your comment data is processed</a>."
+msgstr "אתר זה עושה שימוש באקיזמט למניעת הודעות זבל. <a href=\"%s\" target=\"_blank\" rel=\"nofollow noopener\">לחצו כאן כדי ללמוד איך נתוני התגובה שלכם מעובדים</a>."
 
 #: class.akismet-admin.php:87
 msgid "We collect information about visitors who comment on Sites that use our Akismet anti-spam service. The information we collect depends on how the User sets up Akismet for the Site, but typically includes the commenter's IP address, user agent, referrer, and Site URL (along with other information directly provided by the commenter such as their name, username, email address, and the comment itself)."
@@ -183,6 +225,10 @@ msgid "Akismet checked %s comment."
 msgid_plural "Akismet checked %s comments."
 msgstr[0] "אקיזמט בדק תגובה אחת."
 msgstr[1] "אקיזמט בדק %s תגובות."
+
+#: class.akismet-admin.php:1070
+msgid "There were no comments to check. Akismet will only check comments awaiting moderation."
+msgstr "לא היו תגובות לבדוק. אקיזמט יבדוק אך ורק תגובות שממתינות בתור."
 
 #: class.akismet.php:558
 msgid "Comment not found."
@@ -514,7 +560,7 @@ msgstr[1] "כרגע ממתינות <a href=\"%2$s\">%1$s תגובות</a> לבד
 
 #: class.akismet-admin.php:375
 msgid "There&#8217;s nothing in your <a href='%s'>spam queue</a> at the moment."
-msgstr "אין כרגע תגובות<a href='%s'>ממתינות</a> לבדיקת ספאם."
+msgstr "אין כרגע תגובות <a href='%s'>ממתינות</a> לבדיקת ספאם."
 
 #: class.akismet-admin.php:609
 msgid "Akismet re-checked and cleared this comment."
