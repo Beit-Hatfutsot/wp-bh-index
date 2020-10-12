@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		functions
- * @version		1.0.0
+ * @version		1.1.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -40,3 +40,18 @@ define( 'ACF_EXISTS',			function_exists( 'get_field' ) );
  * Load theme text domain
  */
 load_theme_textdomain( 'twentytwenty-child', get_stylesheet_directory() . '/lang' );
+
+/**
+ * Globals
+ */
+global $globals;
+
+$globals = array(
+
+	// google fonts
+	'google_fonts' => array(
+		'Alef:wght@400;700',
+		'Open+Sans:wght@400;700',
+	),
+
+);

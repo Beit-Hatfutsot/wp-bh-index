@@ -4,9 +4,61 @@
  *
  * @author		Nir Goldberg
  * @package		functions
- * @version		1.0.0
+ * @version		1.1.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+/**
+ * bh_idx_header_meta
+ *
+ * This function hooks header meta in order to add Google Fonts
+ *
+ * @param	N/A
+ * @return	N/A
+ */
+function bh_idx_header_meta() {
+
+	// globals
+	global $globals;
+
+	if ( $globals[ 'google_fonts' ] ) :
+
+		$fonts = array();
+
+		foreach ( $globals[ 'google_fonts' ] as $font ) {
+			$fonts[] = 'family=' . $font;
+		}
+
+		?>
+
+		<!-- Google Fonts -->
+		<style>
+		@import url('https://fonts.googleapis.com/css2?<?php echo implode( '&', $fonts ); ?>&display=swap');
+		</style>
+
+	<?php endif;
+
+}
+add_action( 'wp_head', 'bh_idx_header_meta' );
+
+/**
+ * bh_idx_twentytwenty_get_localized_font_family_types
+ *
+ * This function handles non-latin language styles
+ *
+ * @param	$font_family_types (array)
+ * @return	array
+ */
+function bh_idx_twentytwenty_get_localized_font_family_types( $font_family_types ) {
+
+	$font_family_types[ 'he-IL' ] = array( '\'Alef\'', '\'Open Sans\'', 'sans-serif' );
+	$font_family_types[ 'en-US' ] = array( '\'Alef\'', '\'Open Sans\'', 'sans-serif' );
+
+	// return
+	return $font_family_types;
+
+}
+add_filter( 'twentytwenty_get_localized_font_family_types', 'bh_idx_twentytwenty_get_localized_font_family_types' );
 
 /**
  * bh_idx_the_post_meta

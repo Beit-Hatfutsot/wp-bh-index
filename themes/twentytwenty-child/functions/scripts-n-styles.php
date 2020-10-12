@@ -4,13 +4,14 @@
  *
  * @author		Nir Goldberg
  * @package		functions
- * @version		1.0.0
+ * @version		1.1.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 add_action( 'login_enqueue_scripts',	'bh_idx_login_scripts_n_styles' );
 add_action( 'admin_enqueue_scripts',	'bh_idx_admin_scripts_n_styles' );
 add_action( 'wp_enqueue_scripts',		'bh_idx_wp_scripts_n_styles' );
+add_filter( 'mce_css',					'bh_idx_editor_style' );
 
 /**
  * bh_idx_login_scripts_n_styles
@@ -66,5 +67,37 @@ function bh_idx_wp_scripts_n_styles() {
 	wp_register_script( 'general',		JS_DIR . 'general.min.js',		array( 'jquery' ),	VERSION,	true );
 
 	wp_enqueue_script( 'general' );
+
+}
+
+/**
+ * bh_idx_editor_style
+ *
+ * This function declares tinyMCE styles
+ *
+ * @param	N/A
+ * @return	(string)
+ */
+function bh_idx_editor_style( $styles ) {
+
+	// globals
+	global $globals;
+
+	if ( $globals[ 'google_fonts' ] ) {
+
+		$styles .= ',https://fonts.googleapis.com/css2?';
+
+		foreach ( $globals[ 'google_fonts' ] as $font ) {
+
+			$styles .= 'family=' . $font . '&';
+
+		}
+
+		$styles .= 'display=swap';
+
+	}
+
+	// return
+	return $styles;
 
 }
