@@ -97,6 +97,37 @@
 	}
 }
 
+/****************/
+/* archive grid */
+/****************/
+
+.archive-grid-wrapper {
+	margin: 0 auto;
+	max-width: 1200px;
+
+	.archive-grid {
+		margin-top: 4rem;
+		display: flex;
+		flex-wrap: wrap;
+
+		.grid-post-item {
+			padding: 10px;
+			display: flex;
+
+			article {
+				padding: 10px;
+				width: 100%;
+				text-align: center;
+				border: 1px solid #000;
+
+				.post-meta-wrapper {
+					margin: 10px 0;
+				}
+			}
+		}
+	}
+}
+
 /******************/
 /* shortcode menu */
 /******************/

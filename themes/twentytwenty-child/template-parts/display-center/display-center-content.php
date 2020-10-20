@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		twentytwenty-child/template-parts/display-center
- * @version		1.0.0
+ * @version		1.1.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -14,7 +14,7 @@ if ( ! defined( 'ACF_EXISTS' ) || ! ACF_EXISTS )
 /**
  * Variables
  */
-$one_line_description	= get_field( 'acf-display-center_one_line_description' );
+$one_line_description	= get_field( 'acf-display-center_one_line_description', false, false );
 $master_label			= get_field( 'acf-display-center_master_label' );
 $location				= get_field( 'acf-display-center_location' );
 $media					= get_field( 'acf-display-center_media' );
@@ -27,9 +27,7 @@ $media					= get_field( 'acf-display-center_media' );
 
 		<div class="entry-one-line-description">
 
-			<h2 class="section-title"><?php _e( 'One Line Description', 'twentytwenty-child' ); ?></h2>
-
-			<?php echo $one_line_description; ?>
+			<h2 class="section-title"><?php echo $one_line_description; ?></h2>
 
 		</div><!-- .entry-one-line-description -->
 
@@ -38,8 +36,6 @@ $media					= get_field( 'acf-display-center_media' );
 	<?php if ( $master_label ) { ?>
 
 		<div class="entry-master-label">
-
-			<h2 class="section-title"><?php _e( 'Master Label', 'twentytwenty-child' ); ?></h2>
 
 			<?php echo $master_label; ?>
 

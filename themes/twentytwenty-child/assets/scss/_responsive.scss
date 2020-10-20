@@ -4,9 +4,37 @@
 
 @media (max-width: 991px) {}
 
-@media (max-width: 767px) {}
+@media (max-width: 767px) {
 
-@media (max-width: 480px) {}
+	/****************/
+	/* archive grid */
+	/****************/
+
+	.archive-grid-wrapper {
+		.archive-grid {
+			.grid-post-item {
+				width: 50%;
+			}
+		}
+	}
+
+}
+
+@media (max-width: 480px) {
+
+	/****************/
+	/* archive grid */
+	/****************/
+
+	.archive-grid-wrapper {
+		.archive-grid {
+			.grid-post-item {
+				width: 100%;
+			}
+		}
+	}
+
+}
 
 @media (min-width: 1200px) {}
 
@@ -34,6 +62,19 @@
 			}
 		}
 	}
+
+	/****************/
+	/* archive grid */
+	/****************/
+
+	.archive-grid-wrapper {
+		.archive-grid {
+			.grid-post-item {
+				width: 33.33333334%;
+			}
+		}
+	}
+
 }
 
 @media (min-width: 481px) {}

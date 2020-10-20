@@ -367,14 +367,15 @@ function bh_idx_get_display_centers( $post_id ) {
 
 	// get display centers
 	$args = array(
-		'post_type'		=> 'display_center',
-		'meta_key'		=> 'acf-display-center_curator_number',
-		'orderby'		=> 'meta_value',
-		'order'			=> 'ASC',
-		'meta_query'	=> array(
+		'post_type'			=> 'display_center',
+		'posts_per_page'	=> -1,
+		'meta_key'			=> 'acf-display-center_curator_number',
+		'orderby'			=> 'meta_value',
+		'order'				=> 'ASC',
+		'meta_query'		=> array(
 			array(
-				'key'	=> 'acf-display-center_floor',
-				'value'	=> $floor_number,
+				'key'		=> 'acf-display-center_floor',
+				'value'		=> $floor_number,
 			),
 		),
 	);
@@ -417,14 +418,15 @@ function bh_idx_get_exhibits( $post_id ) {
 
 	// get display centers
 	$args = array(
-		'post_type'		=> 'exhibit',
-		'meta_key'		=> 'acf-exhibit_curator_number',
-		'orderby'		=> 'meta_value',
-		'order'			=> 'ASC',
-		'meta_query'	=> array(
+		'post_type'			=> 'exhibit',
+		'posts_per_page'	=> -1,
+		'meta_key'			=> 'acf-exhibit_item_id',
+		'orderby'			=> 'meta_value',
+		'order'				=> 'ASC',
+		'meta_query'		=> array(
 			array(
-				'key'	=> 'acf-exhibit_display_center',
-				'value'	=> $display_center_number,
+				'key'		=> 'acf-exhibit_display_center',
+				'value'		=> $display_center_number,
 			),
 		),
 	);

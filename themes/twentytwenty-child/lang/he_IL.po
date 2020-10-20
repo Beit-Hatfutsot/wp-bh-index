@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wp-bh-index 1.0.0\n"
-"POT-Creation-Date: 2020-07-23 11:37+0300\n"
-"PO-Revision-Date: 2020-07-23 11:38+0300\n"
+"POT-Creation-Date: 2020-10-20 14:35+0300\n"
+"PO-Revision-Date: 2020-10-20 14:35+0300\n"
 "Last-Translator: Nir Goldberg <nir@htmline.com>\n"
 "Language-Team: Nir Goldberg <nir@htmline.com>\n"
 "Language: he_IL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3.1\n"
+"X-Generator: Poedit 2.4.1\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
 "2 : 3);\n"
@@ -27,12 +27,12 @@ msgstr ""
 msgid "Add New"
 msgstr "הוסף חדש"
 
-#: functions/post-types.php:47 functions/taxonomies.php:50
+#: functions/post-types.php:47 functions/taxonomies.php:49
 #, php-format
 msgid "Add New %s"
 msgstr "הוסף %s חדש"
 
-#: functions/post-types.php:48 functions/taxonomies.php:47
+#: functions/post-types.php:48 functions/taxonomies.php:46
 #, php-format
 msgid "Edit %s"
 msgstr "ערוך %s"
@@ -43,17 +43,17 @@ msgid "New %s"
 msgstr "%s חדש"
 
 #: functions/post-types.php:50 functions/post-types.php:51
-#: functions/taxonomies.php:48
+#: functions/taxonomies.php:47
 #, php-format
 msgid "View %s"
 msgstr "הצג %s"
 
-#: functions/post-types.php:52 functions/taxonomies.php:54
+#: functions/post-types.php:52 functions/taxonomies.php:53
 #, php-format
 msgid "Search %s"
 msgstr "חפש %s"
 
-#: functions/post-types.php:53 functions/taxonomies.php:59
+#: functions/post-types.php:53 functions/taxonomies.php:58
 #, php-format
 msgid "No %s Found"
 msgstr "לא נמצאו %s"
@@ -63,12 +63,12 @@ msgstr "לא נמצאו %s"
 msgid "No %s Found in Trash"
 msgstr "לא נמצאו %s בפח"
 
-#: functions/post-types.php:55 functions/taxonomies.php:53
+#: functions/post-types.php:55 functions/taxonomies.php:52
 #, php-format
 msgid "Parent %s:"
 msgstr "%s הורה:"
 
-#: functions/post-types.php:56 functions/taxonomies.php:46
+#: functions/post-types.php:56 functions/taxonomies.php:45
 #, php-format
 msgid "All %s"
 msgstr "כל ה%s"
@@ -122,7 +122,7 @@ msgstr "%s עודכן/ה"
 msgid "Floors"
 msgstr "קומות"
 
-#: functions/post-types.php:91 functions/theme.php:55
+#: functions/post-types.php:91 functions/theme.php:107 functions/theme.php:517
 msgid "Floor"
 msgstr "קומה"
 
@@ -131,7 +131,7 @@ msgstr "קומה"
 msgid "Display Centers"
 msgstr "מוקדים"
 
-#: functions/post-types.php:137 functions/theme.php:42
+#: functions/post-types.php:137 functions/theme.php:94
 msgid "Display Center"
 msgstr "מוקד"
 
@@ -140,83 +140,67 @@ msgstr "מוקד"
 msgid "Exhibits"
 msgstr "מוצגים"
 
-#: functions/post-types.php:183 functions/theme.php:35
+#: functions/post-types.php:183 functions/theme.php:87
 msgid "Exhibit"
 msgstr "מוצג"
 
-#: functions/taxonomies.php:49
+#: functions/taxonomies.php:48
 #, php-format
 msgid "Update %s"
 msgstr "עדכן %s"
 
-#: functions/taxonomies.php:51
+#: functions/taxonomies.php:50
 #, php-format
 msgid "New %s Name"
 msgstr "שם %s חדש"
 
-#: functions/taxonomies.php:52
+#: functions/taxonomies.php:51
 #, php-format
 msgid "Parent %s"
 msgstr "%s הורה"
 
-#: functions/taxonomies.php:55
+#: functions/taxonomies.php:54
 #, php-format
 msgid "Popular %s"
 msgstr "%s פופלריים/יות"
 
-#: functions/taxonomies.php:56
+#: functions/taxonomies.php:55
 #, php-format
 msgid "Separate %s with commas"
 msgstr "%s מופרדים/ות בפסיק"
 
-#: functions/taxonomies.php:57
+#: functions/taxonomies.php:56
 #, php-format
 msgid "Add or remove %s"
 msgstr "הוסף או הסר %s"
 
-#: functions/taxonomies.php:58
+#: functions/taxonomies.php:57
 #, php-format
 msgid "Choose from the most used %s"
 msgstr "בחר מה%s הנפוצים/ות ביותר"
 
-#: functions/taxonomies.php:60
+#: functions/taxonomies.php:59
 #, php-format
 msgid "← Back to %s"
 msgstr "→ חזרה ל%s"
 
-#: functions/taxonomies.php:83
-msgid "Themes"
-msgstr "נושאי חתך"
-
-#: functions/taxonomies.php:84
-msgid "Theme"
-msgstr "נושא חתך"
-
-#: functions/taxonomies.php:125
+#: functions/taxonomies.php:82
 msgid "Hashtags"
 msgstr "האשטגים"
 
-#: functions/taxonomies.php:126
+#: functions/taxonomies.php:83
 msgid "Hashtag"
 msgstr "האשטג"
 
-#: functions/theme.php:75
+#: functions/theme.php:127
 msgid "interactive"
 msgstr "אינטראקטיב"
 
-#: template-parts/display-center/display-center-content.php:30
-msgid "One Line Description"
-msgstr "תיאור בשורה אחת"
-
-#: template-parts/display-center/display-center-content.php:42
-msgid "Master Label"
-msgstr "מסטר לייבל"
-
-#: template-parts/display-center/display-center-content.php:54
+#: template-parts/display-center/display-center-content.php:50
 msgid "Location"
 msgstr "מיקום"
 
-#: template-parts/display-center/display-center-content.php:66
+#: template-parts/display-center/display-center-content.php:62
 msgid "Media"
 msgstr "מדיה"
 
@@ -232,7 +216,7 @@ msgstr "חייב לדעת"
 msgid "Good for Guiding"
 msgstr "כדאי להדריך"
 
-#: template-parts/exhibit/exhibit-content.php:53
+#: template-parts/exhibit/exhibit-content.php:55
 msgid "Additional Reading"
 msgstr "לקריאה נוספת"
 
@@ -240,6 +224,6 @@ msgstr "לקריאה נוספת"
 msgid "Central Questions"
 msgstr "שאלות מרכזיות"
 
-#: template-parts/tags.php:21 template-parts/tags.php:27
+#: template-parts/tags.php:23
 msgid "Themes and Connections"
 msgstr "נושאים וקישורים"

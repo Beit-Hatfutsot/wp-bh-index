@@ -22,6 +22,25 @@
             "maxlength": ""
         },
         {
+            "key": "field_5f8eaf9677928",
+            "label": "Item ID",
+            "name": "acf-exhibit_item_id",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5eeb5b5d7c413",
             "label": "Must Know",
             "name": "acf-exhibit_must_know",
@@ -131,7 +150,7 @@
     "label_placement": "left",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1594506377
+    "modified": 1603186693
 }

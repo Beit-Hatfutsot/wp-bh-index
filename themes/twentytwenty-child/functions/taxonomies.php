@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		functions
- * @version		1.0.0
+ * @version		1.1.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -18,7 +18,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 function bh_idx_register_custom_taxonomies() {
 
-	bh_idx_register_theme_taxonomy();
 	bh_idx_register_hashtag_taxonomy();
 
 }
@@ -68,48 +67,6 @@ function bh_idx_get_tax_labels( $name, $singular ) {
 }
 
 /**
- * bh_idx_register_theme_taxonomy
- *
- * This function registers the theme custom taxonomy
- *
- * @param	N/A
- * @return	N/A
- */
-function bh_idx_register_theme_taxonomy() {
-
-	/**
-	 * Variables
-	 */
-	$name		= __( 'Themes',	'twentytwenty-child' );
-	$singular	= __( 'Theme',	'twentytwenty-child' );
-
-	$labels = bh_idx_get_tax_labels( $name, $singular );
-
-	$args = array(
-
-		'labels'						=> $labels,
-		'public'						=> true,
-		'publicly_queryable'			=> true,
-		'show_ui'						=> true,
-		'show_in_menu'					=> true,
-		'show_in_nav_menus'				=> true,
-		'show_in_rest'					=> false,
-		'rest_base'						=> 'theme',
-		'show_tagcloud'					=> true,
-		'show_in_quick_edit'			=> true,
-		'show_admin_column'				=> true,
-		'description'					=> '',
-		'hierarchical'					=> false,
-		'query_var'						=> 'theme',
-		'rewrite'						=> array( 'slug' => 'theme', 'with_front' => false ),
-
-	);
-
-	register_taxonomy( 'theme', array( 'floor' ), $args );
-
-}
-
-/**
  * bh_idx_register_hashtag_taxonomy
  *
  * This function registers the hashtag custom taxonomy
@@ -147,6 +104,6 @@ function bh_idx_register_hashtag_taxonomy() {
 
 	);
 
-	register_taxonomy( 'hashtag', array( 'display_center', 'exhibit' ), $args );
+	register_taxonomy( 'hashtag', array( 'floor', 'display_center', 'exhibit' ), $args );
 
 }

@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		twentytwenty-child/template-parts
- * @version		1.0.0
+ * @version		1.1.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -18,10 +18,6 @@ $taxonomy	= '';
 
 switch ( get_post_type() ) {
 	case 'floor':
-		$title		= __( 'Themes and Connections', 'twentytwenty-child' ) . ': ';
-		$taxonomy	= 'theme';
-		break;
-
 	case 'display_center':
 	case 'exhibit':
 		$title		= __( 'Themes and Connections', 'twentytwenty-child' ) . ': ';
