@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		twentytwenty-child
- * @version		1.1.0
+ * @version		1.1.1
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -27,6 +27,9 @@ require_once( 'functions/taxonomies.php' );
 if ( defined( 'USE_LOCAL_ACF_CONFIGURATION' ) && USE_LOCAL_ACF_CONFIGURATION ) {
 	require_once( 'functions/acf/acf-field-groups.php' );
 }
+
+// ACF configuration
+require_once( 'functions/acf/acf-configuration.php' );
 
 // shortcodes
 require_once( 'functions/shortcodes.php' );
