@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		twentytwenty-child
- * @version		1.1.1
+ * @version		1.1.2
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -16,6 +16,9 @@ require_once( 'functions/theme.php' );
 
 // scripts and styles
 require_once( 'functions/scripts-n-styles.php' );
+
+// admin header section
+require_once( 'functions/admin/header.php' );	// should be outside is_admin() because of the login screen
 
 // post types
 require_once( 'functions/post-types.php' );

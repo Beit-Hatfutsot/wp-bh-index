@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		functions
- * @version		1.1.0
+ * @version		1.1.2
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -23,7 +23,7 @@ add_filter( 'mce_css',					'bh_idx_editor_style' );
  */
 function bh_idx_login_scripts_n_styles() {
 
-//	wp_register_style( 'admin-login',	CSS_DIR . 'admin/login.css',	array(),	VERSION );
+	wp_register_style( 'admin-login',	CSS_DIR . 'admin/login.css',	array(),	VERSION );
 
 }
 

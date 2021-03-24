@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		functions
- * @version		1.1.0
+ * @version		1.1.2
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -29,6 +29,7 @@ else {
  * constants
  */
 define( 'VERSION',				$theme_version );
+define( 'HOME',					home_url( '/' ) );
 define( 'SITE_URL',				get_site_url() );
 define( 'TEMPLATE',				get_stylesheet_directory_uri() );
 define( 'CSS_DIR',				TEMPLATE . '/assets/css/' );
