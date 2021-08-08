@@ -13,8 +13,8 @@
 		<custom-field action="copy">acf-exhibit_item_id</custom-field>
 		<custom-field action="ignore">acf-exhibit_must_know</custom-field>
 		<custom-field action="ignore">acf-exhibit_good_for_guiding</custom-field>
-		<custom-field action="copy">acf-exhibit_interactive</custom-field>
 		<custom-field action="ignore">acf-exhibit_more_sources</custom-field>
+		<custom-field action="ignore">acf-exhibit_embedded_video</custom-field>
 		<custom-field action="copy">acf-exhibit_display_center</custom-field>
 	</custom-fields>
 	<custom-types>

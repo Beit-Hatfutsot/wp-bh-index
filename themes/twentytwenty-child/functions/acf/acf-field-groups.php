@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		twentytwenty-child
- * @version		1.1.0
+ * @version		1.2.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -318,25 +318,6 @@ acf_add_local_field_group(array(
 			'delay' => 1,
 		),
 		array(
-			'key' => 'field_5eeb5c0c7c415',
-			'label' => 'Interactive',
-			'name' => 'acf-exhibit_interactive',
-			'type' => 'true_false',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'message' => '',
-			'default_value' => 0,
-			'ui' => 1,
-			'ui_on_text' => '',
-			'ui_off_text' => '',
-		),
-		array(
 			'key' => 'field_5eeb5c8df0449',
 			'label' => 'More Sources',
 			'name' => 'acf-exhibit_more_sources',
@@ -354,6 +335,22 @@ acf_add_local_field_group(array(
 			'toolbar' => 'basic',
 			'media_upload' => 0,
 			'delay' => 1,
+		),
+		array(
+			'key' => 'field_610f9e36ad99c',
+			'label' => 'Embedded Video',
+			'name' => 'acf-exhibit_embedded_video',
+			'type' => 'oembed',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'width' => '',
+			'height' => '',
 		),
 		array(
 			'key' => 'field_5eef091495dbb',
@@ -387,6 +384,68 @@ acf_add_local_field_group(array(
 	'position' => 'normal',
 	'style' => 'default',
 	'label_placement' => 'left',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => '',
+));
+
+acf_add_local_field_group(array(
+	'key' => 'group_5fbaa093c0bef',
+	'title' => 'Footer Settings / Credit',
+	'fields' => array(
+		array(
+			'key' => 'field_5fbaa0a66f3f5',
+			'label' => 'Credit (EN)',
+			'name' => 'acf-options_credit_en',
+			'type' => 'wysiwyg',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'tabs' => 'all',
+			'toolbar' => 'basic',
+			'media_upload' => 0,
+			'delay' => 1,
+		),
+		array(
+			'key' => 'field_5fbaa24ca52d8',
+			'label' => 'Credit (HE)',
+			'name' => 'acf-options_credit_he',
+			'type' => 'wysiwyg',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'tabs' => 'all',
+			'toolbar' => 'basic',
+			'media_upload' => 0,
+			'delay' => 1,
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'options_page',
+				'operator' => '==',
+				'value' => 'acf-options-footer',
+			),
+		),
+	),
+	'menu_order' => 11,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
 	'instruction_placement' => 'label',
 	'hide_on_screen' => '',
 	'active' => true,

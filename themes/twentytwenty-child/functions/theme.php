@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		functions
- * @version		1.1.0
+ * @version		1.2.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -85,7 +85,6 @@ function bh_idx_the_post_meta( $post_id ) {
 			$meta[2] = array(
 				'icon'			=> 'format-image',
 				'title'			=> __( 'Exhibit', 'twentytwenty-child' ) . ' ' . $exhibit_number,
-				'interactive'	=> get_field( 'acf-exhibit_interactive', $post_id ),
 			);
 
 		case 'display_center':
@@ -124,7 +123,7 @@ function bh_idx_the_post_meta( $post_id ) {
 						<span class="screen-reader-text"><?php echo $m[ 'title' ]; ?></span>
 						<span class="dashicons dashicons-<?php echo $m[ 'icon' ]; ?>"></span>
 					</span>
-					<span class="meta-text"><?php echo $m[ 'title' ] . ( isset( $m[ 'interactive' ] ) && $m[ 'interactive' ] ? ' (' . __( 'interactive', 'twentytwenty-child' ) . ')' : '' ); ?></span>
+					<span class="meta-text"><?php echo $m[ 'title' ]; ?></span>
 				</li>
 			<?php } ?>
 
@@ -344,14 +343,53 @@ function bh_idx_get_exhibit_number( $post_id ) {
 }
 
 /**
+ * bh_idx_get_floors
+ *
+ * This function returns all floors
+ *
+ * @param	N/A
+ * @return	(array)
+ */
+function bh_idx_get_floors() {
+
+	/**
+	 * Variables
+	 */
+	$floors = array();
+
+	// get floors
+	$args = array(
+		'post_type'			=> 'floor',
+		'posts_per_page'	=> -1,
+		'meta_key'			=> 'acf-floor_floor_number',
+		'orderby'			=> 'meta_value',
+		'order'				=> 'ASC',
+	);
+	$posts = new WP_Query( $args );
+
+	if ( $posts->have_posts() ) : while ( $posts->have_posts() ) : $posts->the_post();
+
+		$floors[] = $posts->post;
+
+	endwhile; endif;
+
+	wp_reset_postdata();
+
+	// return
+	return $floors;
+
+}
+
+/**
  * bh_idx_get_display_centers
  *
  * This function returns display centers by floor post ID
  *
  * @param	$post_id (int)
+ * @param	$inner_number (bool) [true|false] Whether refer $post_id as inner number (true) or post ID (false)
  * @return	(array)
  */
-function bh_idx_get_display_centers( $post_id ) {
+function bh_idx_get_display_centers( $post_id, $inner_number = false ) {
 
 	if ( ! defined( 'ACF_EXISTS' ) || ! ACF_EXISTS || ! $post_id )
 		return array();
@@ -359,7 +397,7 @@ function bh_idx_get_display_centers( $post_id ) {
 	/**
 	 * Variables
 	 */
-	$floor_number		= get_field( 'acf-floor_floor_number', $post_id );
+	$floor_number		= ! $inner_number ? get_field( 'acf-floor_floor_number', $post_id ) : $post_id;
 	$display_centers	= array();
 
 	if ( ! $floor_number )
@@ -400,9 +438,10 @@ function bh_idx_get_display_centers( $post_id ) {
  * This function returns exhibits by display center post ID
  *
  * @param	$post_id (int)
+ * @param	$inner_number (bool) [true|false] Whether refer $post_id as inner number (true) or post ID (false)
  * @return	(array)
  */
-function bh_idx_get_exhibits( $post_id ) {
+function bh_idx_get_exhibits( $post_id, $inner_number = false ) {
 
 	if ( ! defined( 'ACF_EXISTS' ) || ! ACF_EXISTS || ! $post_id )
 		return array();
@@ -410,7 +449,7 @@ function bh_idx_get_exhibits( $post_id ) {
 	/**
 	 * Variables
 	 */
-	$display_center_number	= get_field( 'acf-display-center_curator_number', $post_id );
+	$display_center_number	= ! $inner_number ? get_field( 'acf-display-center_curator_number', $post_id ) : $post_id;
 	$exhibits				= array();
 
 	if ( ! $display_center_number )
@@ -455,25 +494,26 @@ function bh_idx_get_exhibits( $post_id ) {
  */
 function bh_idx_get_adjacent_posts( $post_id ) {
 
+	if ( ! defined( 'ACF_EXISTS' ) || ! ACF_EXISTS || ! $post_id )
+		return array();
+
 	/**
 	 * Variables
 	 */
-	$post			= get_post( $post_id );
-	$post_parent	= $post->post_parent;
-	$adjacent_posts	= array(
-		'next_post'	=> '',
-		'prev_post'	=> '',
-	);
+	$post_type	= get_post_type( $post_id );
+	$posts		= array();
 
-	// get all posts related to current post
-	$args = array(
-		'post_type'		=> get_post_type( $post_id ),
-		'child_of'		=> $post_parent,
-		'parent'		=> $post_parent,
-		'sort_column'	=> 'menu_order',
-		'sort_order'	=> 'ASC',
-	);
-	$posts = get_pages( $args );
+	if ( 'floor' == $post_type ) {
+		$posts = bh_idx_get_floors();
+	}
+	elseif ( 'display_center' == $post_type ) {
+		$floor_number = get_field( 'acf-display-center_floor', $post_id );
+		$posts = bh_idx_get_display_centers( $floor_number, true );
+	}
+	elseif ( 'exhibit' == $post_type ) {
+		$display_center_number = get_field( 'acf-exhibit_display_center', $post_id );
+		$posts = bh_idx_get_exhibits( $display_center_number, true );
+	}
 
 	$nummber_of_posts = count( $posts );
 

@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		twentytwenty-child/template-parts
- * @version		1.0.0
+ * @version		1.2.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -44,6 +44,13 @@ if ( ! defined( 'ACF_EXISTS' ) || ! ACF_EXISTS )
 					 * display featured image
 					 */
 					get_template_part( 'template-parts/featured-image' );
+				?>
+
+				<?php
+					/**
+					 * display embedded video
+					 */
+					get_template_part( 'template-parts/embedded-video' );
 				?>
 
 			</div><!-- .entry-content -->
