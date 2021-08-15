@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		twentytwenty-child/template-parts/display-center
- * @version		1.0.0
+ * @version		1.2.1
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -22,7 +22,7 @@ if ( ! $exhibits )
 
 	<?php foreach ( $exhibits as $e ) {
 
-		echo '<li><a href="' . esc_url( get_permalink( $e->ID ) ) . '">' . $e->post_title . '</a> (' . bh_idx_get_exhibit_number( $e->ID ) . ')</li>';
+		echo '<li><a href="' . esc_url( get_permalink( $e->ID ) ) . '">' . $e->post_title . '</a></li>';
 
 	} ?>
 
