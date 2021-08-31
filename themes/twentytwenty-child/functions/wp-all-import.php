@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		functions
- * @version		1.0.0
+ * @version		1.2.2
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -47,8 +47,8 @@ function bh_idx_set_import_lang( $post_id, $xml_node, $is_update ) {
 	}
 	elseif ( 'exhibit' == $post_type ) {
 
-		$key = 'acf-exhibit_curator_number';
-		$value	= (string)$xml_node->curatornumber;
+		$key = 'acf-exhibit_item_id';
+		$value	= (string)$xml_node->itemid;
 
 	}
 	else {
