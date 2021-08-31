@@ -9,7 +9,31 @@
  * @since 1.4
  */
 class PLL_Filters {
-	public $links_model, $model, $options, $curlang;
+	/**
+	 * Stores the plugin options.
+	 *
+	 * @var array
+	 */
+	public $options;
+
+	/**
+	 * @var PLL_Model
+	 */
+	public $model;
+
+	/**
+	 * Instance of a child class of PLL_Links_Model.
+	 *
+	 * @var PLL_Links_Model
+	 */
+	public $links_model;
+
+	/**
+	 * Current language.
+	 *
+	 * @var PLL_Language
+	 */
+	public $curlang;
 
 	/**
 	 * Constructor: setups filters
@@ -23,6 +47,11 @@ class PLL_Filters {
 		$this->model = &$polylang->model;
 		$this->options = &$polylang->options;
 		$this->curlang = &$polylang->curlang;
+
+		// Deletes our cache for sticky posts when the list is updated.
+		add_action( 'update_option_sticky_posts', array( $this, 'delete_sticky_posts_cache' ) );
+		add_action( 'add_option_sticky_posts', array( $this, 'delete_sticky_posts_cache' ) );
+		add_action( 'delete_option_sticky_posts', array( $this, 'delete_sticky_posts_cache' ) );
 
 		// Filters the comments according to the current language
 		add_action( 'parse_comment_query', array( $this, 'parse_comment_query' ) );
@@ -40,9 +69,6 @@ class PLL_Filters {
 		// Converts the locale to a valid W3C locale
 		add_filter( 'language_attributes', array( $this, 'language_attributes' ) );
 
-		// Prevents deleting all the translations of the default category
-		add_filter( 'map_meta_cap', array( $this, 'fix_delete_default_category' ), 10, 4 );
-
 		// Translate the site title in emails sent to users
 		add_filter( 'password_change_email', array( $this, 'translate_user_email' ) );
 		add_filter( 'email_change_email', array( $this, 'translate_user_email' ) );
@@ -56,62 +82,92 @@ class PLL_Filters {
 	}
 
 	/**
-	 * Get the language to filter a comments query
+	 * Deletes the cache for multilingual sticky posts.
 	 *
-	 * @since 2.0
+	 * @since 2.8.4
 	 *
-	 * @param object $query
-	 * @return object|bool the language(s) to use in the filter, false otherwise
+	 * @return void
 	 */
-	protected function get_comments_queried_language( $query ) {
-		// Don't filter comments if comment ids or post ids are specified
-		$plucked = wp_array_slice_assoc( $query->query_vars, array( 'comment__in', 'parent', 'post_id', 'post__in', 'post_parent' ) );
-		$fields = array_filter( $plucked );
-		if ( ! empty( $fields ) ) {
-			return false;
-		}
-
-		// Don't filter comments if a non translated post type is specified
-		if ( ! empty( $query->query_vars['post_type'] ) && ! $this->model->is_translated_post_type( $query->query_vars['post_type'] ) ) {
-			return false;
-		}
-
-		return empty( $query->query_vars['lang'] ) ? $this->curlang : $this->model->get_language( $query->query_vars['lang'] );
+	public function delete_sticky_posts_cache() {
+		wp_cache_delete( 'sticky_posts', 'options' );
 	}
 
 	/**
-	 * Adds language dependent cache domain when querying comments
-	 * Useful as the 'lang' parameter is not included in cache key by WordPress
-	 * Needed since WP 4.6 as comments have been added to persistent cache. See #36906, #37419
+	 * Get the language to filter a comments query.
+	 *
+	 * @since 2.0
+	 * @since 3.1 Always returns an array. Renamed from get_comments_queried_language().
+	 *
+	 * @param WP_Comment_Query $query WP_Comment_Query object.
+	 * @return PLL_Language[] The languages to use in the filter.
+	 */
+	protected function get_comments_queried_languages( $query ) {
+		// Don't filter comments if comment ids or post ids are specified.
+		$plucked = wp_array_slice_assoc( $query->query_vars, array( 'comment__in', 'parent', 'post_id', 'post__in', 'post_parent' ) );
+		$fields = array_filter( $plucked );
+		if ( ! empty( $fields ) ) {
+			return array();
+		}
+
+		// Don't filter comments if a non translated post type is specified.
+		if ( ! empty( $query->query_vars['post_type'] ) && ! $this->model->is_translated_post_type( $query->query_vars['post_type'] ) ) {
+			return array();
+		}
+
+		// If comments are queried with a 'lang' parameter, keeps only language codes.
+		if ( isset( $query->query_vars['lang'] ) ) {
+			$languages = is_string( $query->query_vars['lang'] ) ? explode( ',', $query->query_vars['lang'] ) : $query->query_vars['lang'];
+			if ( is_array( $languages ) ) {
+				$languages = array_map( array( $this->model, 'get_language' ), $languages );
+				return array_filter( $languages );
+			}
+		}
+
+		if ( ! empty( $this->curlang ) ) {
+			return array( $this->curlang );
+		}
+
+		return array();
+	}
+
+	/**
+	 * Adds a language dependent cache domain when querying comments.
+	 * Useful as the 'lang' parameter is not included in cache key by WordPress.
+	 * Needed since WP 4.6 as comments have been added to persistent cache. See #36906, #37419.
 	 *
 	 * @since 2.0
 	 *
-	 * @param object $query
+	 * @param WP_Comment_Query $query WP_Comment_Query object.
+	 * @return void
 	 */
 	public function parse_comment_query( $query ) {
-		if ( $lang = $this->get_comments_queried_language( $query ) ) {
-			$key = '_' . ( is_array( $lang ) ? implode( ',', $lang ) : $this->model->get_language( $lang )->slug );
+		$lang = $this->get_comments_queried_languages( $query );
+		if ( ! empty( $lang ) ) {
+			$lang = wp_list_pluck( $lang, 'slug' );
+			$key = '_' . implode( ',', $lang );
 			$query->query_vars['cache_domain'] = empty( $query->query_vars['cache_domain'] ) ? 'pll' . $key : $query->query_vars['cache_domain'] . $key;
 		}
 	}
 
 	/**
-	 * Filters the comments according to the current language
-	 * Used by the recent comments widget and admin language filter
+	 * Filters the comments according to the current language.
+	 * Used by the recent comments widget and admin language filter.
 	 *
 	 * @since 0.2
 	 *
-	 * @param array  $clauses sql clauses
-	 * @param object $query   WP_Comment_Query object
-	 * @return array modified $clauses
+	 * @param string[]         $clauses SQL clauses.
+	 * @param WP_Comment_Query $query   WP_Comment_Query object.
+	 * @return string[] Modified $clauses.
 	 */
 	public function comments_clauses( $clauses, $query ) {
 		global $wpdb;
 
-		$lang = $this->get_comments_queried_language( $query );
+		$lang = $this->get_comments_queried_languages( $query );
 
 		if ( ! empty( $lang ) ) {
-			// If this clause is not already added by WP
+			$lang = wp_list_pluck( $lang, 'slug' );
+
+			// If this clause is not already added by WP.
 			if ( ! strpos( $clauses['join'], '.ID' ) ) {
 				$clauses['join'] .= " JOIN $wpdb->posts ON $wpdb->posts.ID = $wpdb->comments.comment_post_ID";
 			}
@@ -123,13 +179,13 @@ class PLL_Filters {
 	}
 
 	/**
-	 * Filters get_pages per language
+	 * Filters get_pages() per language.
 	 *
 	 * @since 1.4
 	 *
-	 * @param array $pages an array of pages already queried
-	 * @param array $args  get_pages arguments
-	 * @return array modified list of pages
+	 * @param WP_Post[] $pages An array of pages already queried.
+	 * @param array     $args  Array of get_pages() arguments.
+	 * @return WP_Post[] Modified list of pages.
 	 */
 	public function get_pages( $pages, $args ) {
 		if ( isset( $args['lang'] ) && empty( $args['lang'] ) ) {
@@ -164,8 +220,8 @@ class PLL_Filters {
 				),
 			);
 
-			// Take care that 'exclude' argument accepts integer or strings too
-			$args['exclude'] = array_merge( wp_parse_id_list( $args['exclude'] ), get_posts( $r ) );
+			// Take care that 'exclude' argument accepts integer or strings too.
+			$args['exclude'] = array_merge( wp_parse_id_list( $args['exclude'] ), get_posts( $r ) ); // phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude
 			$pages = get_pages( $args );
 		}
 
@@ -192,34 +248,34 @@ class PLL_Filters {
 	}
 
 	/**
-	 * Modifies the sql request for get_adjacent_post to filter by the current language
+	 * Modifies the sql request for get_adjacent_post to filter by the current language.
 	 *
 	 * @since 0.1
 	 *
 	 * @param string  $sql            The JOIN clause in the SQL.
 	 * @param bool    $in_same_term   Whether post should be in a same taxonomy term.
-	 * @param array   $excluded_terms Array of excluded term IDs.
+	 * @param int[]   $excluded_terms Array of excluded term IDs.
 	 * @param string  $taxonomy       Taxonomy. Used to identify the term used when `$in_same_term` is true.
 	 * @param WP_Post $post           WP_Post object.
-	 * @return string modified JOIN clause
+	 * @return string Modified JOIN clause.
 	 */
-	public function posts_join( $sql, $in_same_term, $excluded_terms, $taxonomy = '', $post = null ) {
+	public function posts_join( $sql, $in_same_term, $excluded_terms, $taxonomy, $post ) {
 		return $this->model->is_translated_post_type( $post->post_type ) && ! empty( $this->curlang ) ? $sql . $this->model->post->join_clause( 'p' ) : $sql;
 	}
 
 	/**
-	 * Modifies the sql request for wp_get_archives and get_adjacent_post to filter by the current language
+	 * Modifies the sql request for wp_get_archives and get_adjacent_post to filter by the current language.
 	 *
 	 * @since 0.1
 	 *
 	 * @param string  $sql            The WHERE clause in the SQL.
 	 * @param bool    $in_same_term   Whether post should be in a same taxonomy term.
-	 * @param array   $excluded_terms Array of excluded term IDs.
+	 * @param int[]   $excluded_terms Array of excluded term IDs.
 	 * @param string  $taxonomy       Taxonomy. Used to identify the term used when `$in_same_term` is true.
 	 * @param WP_Post $post           WP_Post object.
-	 * @return string modified WHERE clause
+	 * @return string Modified WHERE clause.
 	 */
-	public function posts_where( $sql, $in_same_term, $excluded_terms, $taxonomy = '', $post = null ) {
+	public function posts_where( $sql, $in_same_term, $excluded_terms, $taxonomy, $post ) {
 		return $this->model->is_translated_post_type( $post->post_type ) && ! empty( $this->curlang ) ? $sql . $this->model->post->where_clause( $this->curlang ) : $sql;
 	}
 
@@ -239,38 +295,13 @@ class PLL_Filters {
 	}
 
 	/**
-	 * Prevents deleting all the translations of the default category
-	 *
-	 * @since 2.1
-	 *
-	 * @param array  $caps    The user's actual capabilities.
-	 * @param string $cap     Capability name.
-	 * @param int    $user_id The user ID.
-	 * @param array  $args    Adds the context to the cap. The category id.
-	 * @return array
-	 */
-	public function fix_delete_default_category( $caps, $cap, $user_id, $args ) {
-		if ( 'delete_term' === $cap ) {
-			$term = get_term( reset( $args ) ); // Since WP 4.4, we can get the term to get the taxonomy
-			if ( $term instanceof WP_Term ) {
-				$default_cat = get_option( 'default_' . $term->taxonomy );
-				if ( $default_cat && array_intersect( $args, $this->model->term->get_translations( $default_cat ) ) ) {
-					$caps[] = 'do_not_allow';
-				}
-			}
-		}
-
-		return $caps;
-	}
-
-	/**
 	 * Translates the site title in emails sent to the user (change email, reset password)
 	 * It is necessary to filter the email because WP evaluates the site title before calling switch_to_locale()
 	 *
 	 * @since 2.1.3
 	 *
-	 * @param array $email
-	 * @return array
+	 * @param string[] $email Email contents.
+	 * @return string[] Translated email contents.
 	 */
 	public function translate_user_email( $email ) {
 		$blog_name = wp_specialchars_decode( pll__( get_option( 'blogname' ) ), ENT_QUOTES );
@@ -319,7 +350,7 @@ class PLL_Filters {
 	 * @since 2.3.6
 	 *
 	 * @param array $exporters Personal data exporters
-	 * @retun array
+	 * @return array
 	 */
 	public function register_personal_data_exporter( $exporters ) {
 		$exporters[] = array(

@@ -48,12 +48,8 @@ class FtpbrowserController {
 			'port' => $conn_details['port'],
 			'username' => $conn_details['user'],
 			'password' => $conn_details['pass'],
-			'root' => '/',
-			'timeout' => 10,
+			'root' => empty($conn_details['root']) ? '/' : $conn_details['root'],
 			'dir' => $dir,
-			// FTP only options
-			'passive' => true,
-			'ignorePassiveAddress' => false,
 			'privateKey' => $conn_details['key'],
 		];
 
@@ -66,6 +62,10 @@ class FtpbrowserController {
 			return $this->sendRes($ftp->getError(), 400, 'text');
 		}
 
+		if( empty($contents['data']) ){
+			return $this->sendRes('No data returned from the (S)FTP server. The root path is probably required. Enter it in the path field like \'/root/path/here\'. The filename is optional when selecting on Step 1.', 400, 'text');
+		}
+
 		// Check if port changed and send new port if needed.
 		if( $conn_details['port'] != $ftp->get_port() ){
 			$contents['port'] = $ftp->get_port();
@@ -74,6 +74,11 @@ class FtpbrowserController {
 		// Check if the host protocol needs to be noted and add it if needed.
 		if( !(strpos(strtolower($conn_details['host']), $ftp->get_protocol() . '://') !== false) ){
 			$contents['host'] = $ftp->get_protocol() . '://' . $conn_details['host'];
+		}
+
+		// Check if the root path has changed and update as needed.
+		if( !(strpos(strtolower($conn_details['root']), $ftp->get_root()) !== false) ){
+			$contents['root'] = $ftp->get_root();
 		}
 
 		// Return contents if all went well.

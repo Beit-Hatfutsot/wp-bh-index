@@ -1,6 +1,6 @@
 <!-- Preload Images -->
 
-<img src="<?php echo PMXI_Plugin::ROOT_URL . '/static/img/soflyy-logo.png'; ?>" class="wpallimport-preload-image"/>
+<img src="<?php echo PMXI_Plugin::ROOT_URL . '/static/img/soflyy-logo.svg'; ?>" class="wpallimport-preload-image"/>
 
 <script type="text/javascript">
 	var plugin_url = '<?php echo WP_ALL_IMPORT_ROOT_URL; ?>';
@@ -14,8 +14,7 @@
 				<div class="wpallimport-header">
 					<div class="wpallimport-logo"></div>
 					<div class="wpallimport-title">
-						<p><?php _e('WP All Import', 'wp_all_import_plugin'); ?></p>
-						<h2><?php _e('Import XML / CSV', 'wp_all_import_plugin'); ?></h2>					
+						<h2><?php _e('New Import', 'wp_all_import_plugin'); ?></h2>
 					</div>
 					<div class="wpallimport-links">
 						<a href="http://www.wpallimport.com/support/" target="_blank"><?php _e('Support', 'wp_all_import_plugin'); ?></a> | <a href="http://www.wpallimport.com/documentation/" target="_blank"><?php _e('Documentation', 'wp_all_import_plugin'); ?></a>
@@ -193,6 +192,10 @@
                                     <textarea class="wpai-ftp-text-area" name="ftp_private_key" value="<?php echo ( ! empty($post['ftp_private_key'])) ? esc_attr($post['ftp_private_key']) : ''; ?>" placeholder="SFTP Private Key"></textarea>
                                     <a class="wpallimport-help" id="wpai-ftp-text-area-help" href="#help" style="position: relative; top: -2px;" title="<?php _e('If you don\'t know if you need an SFTP Private Key, contact the host of the server.', PMXI_Plugin::LANGUAGE_DOMAIN); ?>">?</a>
                                 </div>
+                                <div style="display:none;">
+                                    <input type="hidden" name="ftp_root"
+                                           value="<?php echo ( ! empty( $post['ftp_root'] ) ) ? esc_attr( $post['ftp_root'] ) : ''; ?>"/>
+                                </div>
                                 <div class="wpallimport-file-type-options ftp_path">
 
                                     <input type="text" class="regular-text" name="ftp_path"
@@ -214,7 +217,7 @@
                                     <span class="wpallimport-input-icon wpallimport-ftp-path-icon"></span>
                                     <a class="wpallimport-help" href="#help"
                                        style="position: absolute;top: -32px;right: -30px;"
-                                       title="<?php _e( 'The path to the file you want to import. In case multiple files are found, only the first will be downloaded. Examples: /home/ftpuser/import.csv or import-files/*.csv', PMXI_Plugin::LANGUAGE_DOMAIN ); ?>">?</a>
+                                       title="<?php _e( 'The path to the file you want to import. In case multiple files are found, only the first will be downloaded. Examples: /home/ftpuser/import.csv or import-files/{newest.csv}', PMXI_Plugin::LANGUAGE_DOMAIN ); ?>">?</a>
                                 </div>
 
                                 <span class="wpallimport-ftp-builder-wrap">
@@ -222,6 +225,7 @@
                                 </div>
                                 <input type="hidden" id="wpai-ftp-browser-nonce"
                                        value="<?php echo wp_create_nonce( 'wpai-ftp-browser' ); ?>"/>
+
                                 </span>
 
                                 <div class="rad4 first-step-errors wpai-ftp-connection-error">
@@ -461,6 +465,8 @@
 											<a href="https://www.wpallimport.com/checkout/?edd_action=add_to_cart&download_id=2707221&edd_options%5Bprice_id%5D=1" target="_blank" class="upgrade_link"><?php _e('Purchase the User Add-On', 'wp_all_import_plugin');?></a>
 										</div>
 									<?php endif; ?>
+
+                                    <?php do_action('wp_all_import_entity_type_bundle', $post, false); ?>
 								</div>
 							</div>
 						</div>

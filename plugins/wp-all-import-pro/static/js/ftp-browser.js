@@ -16,7 +16,7 @@
         '    </span>';
 
     // Dismiss error notice
-    $('.dismiss-wpai-ftp-connection-error').click(function(){
+    $('.dismiss-wpai-ftp-connection-error').on('click', function(){
         $(this).parent().hide();
     });
 
@@ -40,6 +40,11 @@
         // If a new port was returned update the form with it.
         if(data['port']){
             $('input[name="ftp_port"]').val(data['port']);
+        }
+
+        // If a new root is returned update the form with it.
+        if(data['root']){
+            $('input[name="ftp_root"]').val(data['root']);
         }
 
         list += '<div class="wpai-ftp-browser-grid">';
@@ -148,9 +153,10 @@
         let user = $('input[name="ftp_username"]').val();
         let pass = $('input[name="ftp_password"]').val();
         let port = $('input[name="ftp_port"]').val();
+        let root = $('input[name="ftp_root"]').val();
         let key = $('textarea[name="ftp_private_key"]').val();
 
-        return {conn_details:{host: host, user: user, pass: pass, port: port, key: key}, dir:dir};
+        return {conn_details:{host: host, user: user, pass: pass, port: port, key: key, root:root}, dir:dir};
     }
 
     function loadFiles(dir = '', firstRun = false){
@@ -158,7 +164,7 @@
         $(".wpai-ftp-connection-error").hide();
 
         let nonce = $('#wpai-ftp-browser-nonce').val();
-        let target = location.origin + '/wp-load.php?_nonce=' + nonce;
+        let target = wpai_home_url + '/wp-load.php?_nonce=' + nonce;
         target += '&action=wpai_public_api&q=ftpbrowser/load';
 
         // Format path for display.
