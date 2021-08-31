@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		twentytwenty-child/template-parts/floor
- * @version		1.0.0
+ * @version		1.2.3
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -24,7 +24,7 @@ if ( ! $display_centers )
 
 		<?php foreach ( $display_centers as $c ) {
 
-			echo '<li><a href="' . esc_url( get_permalink( $c->ID ) ) . '">' . $c->post_title . '</a> (' . bh_idx_get_display_center_number( $c->ID ) . ')</li>';
+			echo '<li><a href="' . esc_url( get_permalink( $c->ID ) ) . '">' . $c->post_title . '</a></li>';
 
 		} ?>
 
