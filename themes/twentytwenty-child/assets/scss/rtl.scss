@@ -17,27 +17,29 @@
 
 .container {
 	.post-inner {
-		.toggle-section {
-			& > h2 {
-				span {
-					left: 5px;
-					right: auto;
-				}
-			}
-		}
-
-		&.aside {
-			h3 {
-				.dashicons {
-					margin-left: 10px;
-					margin-right: auto;
+		.entry-content {
+			.toggle-section {
+				& > h2 {
+					span {
+						left: 5px;
+						right: auto;
+					}
 				}
 			}
 
-			ul {
-				li {
-					margin-left: auto;
-					margin-right: 0;
+			&.aside {
+				h3 {
+					.dashicons {
+						margin-left: 10px;
+						margin-right: auto;
+					}
+				}
+
+				ul {
+					li {
+						margin-left: auto;
+						margin-right: 0;
+					}
 				}
 			}
 		}
