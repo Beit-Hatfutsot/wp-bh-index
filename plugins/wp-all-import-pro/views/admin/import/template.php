@@ -65,7 +65,7 @@
 													//'teeny' => true,	
 													'editor_class' => 'wpallimport-plugin-editor',
 													'media_buttons' => false,
-													'editor_height' => 200)); 
+													'editor_height' => 200));
 											?>
 											
 										</div>

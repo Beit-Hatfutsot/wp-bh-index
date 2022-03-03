@@ -172,9 +172,14 @@
 										</div>
 
 										<div id="times" style="margin-bottom: 10px;">
-											<?php if (is_array($post['scheduling_times'])) {
-												foreach ($post['scheduling_times'] as $time) { ?>
+										<?php if (is_array($post['scheduling_times'])) {
 
+												$scheduling_times = wp_all_import_sanitize_scheduling_times($post['scheduling_times']);
+
+												if(!is_array($scheduling_times))
+												    $scheduling_times = [];
+
+												foreach ($scheduling_times as $time) { ?>
 													<?php if ($time) { ?>
 														<input class="timepicker" type="text" name="scheduling_times[]"
 															   value="<?php echo $time; ?>"/>
