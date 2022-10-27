@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		functions
- * @version		1.2.2
+ * @version		1.3.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -77,7 +77,7 @@ add_action( 'pmxi_saved_post', 'bh_idx_set_import_lang', 10, 3 );
  */
 function bh_idx_get_posts_by_key( $post_type, $key, $value ) {
 
-	if ( ! $post_type || ! $key || ! $value )
+	if ( ! $post_type || ! $key || is_null( $value ) )
 		return;
 
 	/**

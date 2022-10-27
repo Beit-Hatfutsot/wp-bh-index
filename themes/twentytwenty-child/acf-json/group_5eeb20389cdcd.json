@@ -6,6 +6,7 @@
             "key": "field_5eeb204c94eef",
             "label": "Curator Number",
             "name": "acf-display-center_curator_number",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 1,
@@ -25,6 +26,7 @@
             "key": "field_5eeb271fd752d",
             "label": "One Line Description",
             "name": "acf-display-center_one_line_description",
+            "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -44,44 +46,7 @@
             "key": "field_5eeb5ed65665f",
             "label": "Master Label",
             "name": "acf-display-center_master_label",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 0,
-            "delay": 1
-        },
-        {
-            "key": "field_5eeb2858d752e",
-            "label": "Location",
-            "name": "acf-display-center_location",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5eeb28d4d752f",
-            "label": "Media",
-            "name": "acf-display-center_media",
+            "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -101,6 +66,7 @@
             "key": "field_5eef076205935",
             "label": "Floor",
             "name": "acf-display-center_floor",
+            "aria-label": "",
             "type": "field_group_foreign_key",
             "instructions": "",
             "required": 1,
@@ -131,7 +97,8 @@
     "label_placement": "left",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1594506385
+    "show_in_rest": 0,
+    "modified": 1666814612
 }

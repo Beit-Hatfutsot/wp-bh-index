@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		functions
- * @version		1.0.0
+ * @version		1.3.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -28,7 +28,7 @@ function bh_idx_menu( $atts, $content = null ) {
 		return '';
 
 	// return
-	return wp_nav_menu( array( 'menu' => $name, 'menu_class' => $class, 'echo' => false ) );
+	return wp_nav_menu( array( 'theme_location' => $name, 'menu_class' => $class, 'echo' => false ) );
 
 }
 add_shortcode( 'menu', 'bh_idx_menu' );

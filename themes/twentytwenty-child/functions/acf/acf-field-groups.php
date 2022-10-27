@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		twentytwenty-child
- * @version		1.2.0
+ * @version		1.3.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -21,6 +21,7 @@ acf_add_local_field_group(array(
 			'key' => 'field_5eea3b882608c',
 			'label' => 'Floor Number',
 			'name' => 'acf-floor_floor_number',
+			'aria-label' => '',
 			'type' => 'radio',
 			'instructions' => '',
 			'required' => 1,
@@ -46,6 +47,7 @@ acf_add_local_field_group(array(
 			'key' => 'field_5eeb5fb2f1d8e',
 			'label' => 'Text',
 			'name' => 'acf-floor_text',
+			'aria-label' => '',
 			'type' => 'wysiwyg',
 			'instructions' => '',
 			'required' => 0,
@@ -65,6 +67,7 @@ acf_add_local_field_group(array(
 			'key' => 'field_5eea3c1a2608d',
 			'label' => 'Central Questions',
 			'name' => 'acf-floor_central_questions',
+			'aria-label' => '',
 			'type' => 'wysiwyg',
 			'instructions' => '',
 			'required' => 0,
@@ -98,6 +101,7 @@ acf_add_local_field_group(array(
 	'hide_on_screen' => '',
 	'active' => true,
 	'description' => '',
+	'show_in_rest' => false,
 ));
 
 acf_add_local_field_group(array(
@@ -108,6 +112,7 @@ acf_add_local_field_group(array(
 			'key' => 'field_5eeb204c94eef',
 			'label' => 'Curator Number',
 			'name' => 'acf-display-center_curator_number',
+			'aria-label' => '',
 			'type' => 'text',
 			'instructions' => '',
 			'required' => 1,
@@ -127,6 +132,7 @@ acf_add_local_field_group(array(
 			'key' => 'field_5eeb271fd752d',
 			'label' => 'One Line Description',
 			'name' => 'acf-display-center_one_line_description',
+			'aria-label' => '',
 			'type' => 'wysiwyg',
 			'instructions' => '',
 			'required' => 0,
@@ -146,44 +152,7 @@ acf_add_local_field_group(array(
 			'key' => 'field_5eeb5ed65665f',
 			'label' => 'Master Label',
 			'name' => 'acf-display-center_master_label',
-			'type' => 'wysiwyg',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'tabs' => 'all',
-			'toolbar' => 'basic',
-			'media_upload' => 0,
-			'delay' => 1,
-		),
-		array(
-			'key' => 'field_5eeb2858d752e',
-			'label' => 'Location',
-			'name' => 'acf-display-center_location',
-			'type' => 'text',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'placeholder' => '',
-			'prepend' => '',
-			'append' => '',
-			'maxlength' => '',
-		),
-		array(
-			'key' => 'field_5eeb28d4d752f',
-			'label' => 'Media',
-			'name' => 'acf-display-center_media',
+			'aria-label' => '',
 			'type' => 'wysiwyg',
 			'instructions' => '',
 			'required' => 0,
@@ -203,6 +172,7 @@ acf_add_local_field_group(array(
 			'key' => 'field_5eef076205935',
 			'label' => 'Floor',
 			'name' => 'acf-display-center_floor',
+			'aria-label' => '',
 			'type' => 'field_group_foreign_key',
 			'instructions' => '',
 			'required' => 1,
@@ -235,6 +205,7 @@ acf_add_local_field_group(array(
 	'hide_on_screen' => '',
 	'active' => true,
 	'description' => '',
+	'show_in_rest' => 0,
 ));
 
 acf_add_local_field_group(array(
@@ -242,28 +213,10 @@ acf_add_local_field_group(array(
 	'title' => 'Exhibit Attributes',
 	'fields' => array(
 		array(
-			'key' => 'field_5eeb5b307c412',
-			'label' => 'Curator Number',
-			'name' => 'acf-exhibit_curator_number',
-			'type' => 'text',
-			'instructions' => '',
-			'required' => 1,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'placeholder' => '',
-			'prepend' => '',
-			'append' => '',
-			'maxlength' => '',
-		),
-		array(
 			'key' => 'field_5f8eaf9677928',
 			'label' => 'Item ID',
 			'name' => 'acf-exhibit_item_id',
+			'aria-label' => '',
 			'type' => 'text',
 			'instructions' => '',
 			'required' => 1,
@@ -274,15 +227,16 @@ acf_add_local_field_group(array(
 				'id' => '',
 			),
 			'default_value' => '',
+			'maxlength' => '',
 			'placeholder' => '',
 			'prepend' => '',
 			'append' => '',
-			'maxlength' => '',
 		),
 		array(
 			'key' => 'field_5eeb5b5d7c413',
 			'label' => 'Must Know',
 			'name' => 'acf-exhibit_must_know',
+			'aria-label' => '',
 			'type' => 'wysiwyg',
 			'instructions' => '',
 			'required' => 0,
@@ -302,6 +256,7 @@ acf_add_local_field_group(array(
 			'key' => 'field_5eeb5bce7c414',
 			'label' => 'Good for Guiding',
 			'name' => 'acf-exhibit_good_for_guiding',
+			'aria-label' => '',
 			'type' => 'wysiwyg',
 			'instructions' => '',
 			'required' => 0,
@@ -321,6 +276,7 @@ acf_add_local_field_group(array(
 			'key' => 'field_5eeb5c8df0449',
 			'label' => 'More Sources',
 			'name' => 'acf-exhibit_more_sources',
+			'aria-label' => '',
 			'type' => 'wysiwyg',
 			'instructions' => '',
 			'required' => 0,
@@ -340,6 +296,7 @@ acf_add_local_field_group(array(
 			'key' => 'field_610f9e36ad99c',
 			'label' => 'Embedded Video',
 			'name' => 'acf-exhibit_embedded_video',
+			'aria-label' => '',
 			'type' => 'oembed',
 			'instructions' => '',
 			'required' => 0,
@@ -353,9 +310,27 @@ acf_add_local_field_group(array(
 			'height' => '',
 		),
 		array(
+			'key' => 'field_635a9c9e9b381',
+			'label' => '3D',
+			'name' => 'acf-exhibit_3d',
+			'aria-label' => '',
+			'type' => 'url',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+		),
+		array(
 			'key' => 'field_5eef091495dbb',
 			'label' => 'Display Center',
 			'name' => 'acf-exhibit_display_center',
+			'aria-label' => '',
 			'type' => 'field_group_foreign_key',
 			'instructions' => '',
 			'required' => 1,
@@ -388,6 +363,7 @@ acf_add_local_field_group(array(
 	'hide_on_screen' => '',
 	'active' => true,
 	'description' => '',
+	'show_in_rest' => 0,
 ));
 
 acf_add_local_field_group(array(
@@ -398,6 +374,7 @@ acf_add_local_field_group(array(
 			'key' => 'field_5fbaa0a66f3f5',
 			'label' => 'Credit (EN)',
 			'name' => 'acf-options_credit_en',
+			'aria-label' => '',
 			'type' => 'wysiwyg',
 			'instructions' => '',
 			'required' => 0,
@@ -417,6 +394,7 @@ acf_add_local_field_group(array(
 			'key' => 'field_5fbaa24ca52d8',
 			'label' => 'Credit (HE)',
 			'name' => 'acf-options_credit_he',
+			'aria-label' => '',
 			'type' => 'wysiwyg',
 			'instructions' => '',
 			'required' => 0,
@@ -450,6 +428,7 @@ acf_add_local_field_group(array(
 	'hide_on_screen' => '',
 	'active' => true,
 	'description' => '',
+	'show_in_rest' => false,
 ));
 
 endif;

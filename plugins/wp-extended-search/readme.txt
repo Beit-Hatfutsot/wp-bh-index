@@ -2,9 +2,9 @@
 Contributors: 5um17
 Tags: search, postmeta, taxonomy, advance search, category search, page search, tag search, author search, search forms, woocommerce search
 Requires at least: 4.0
-Tested up to: 5.8
+Tested up to: 6.0
 Requires PHP: 7.0
-Stable tag: 2.0.3
+Stable tag: 2.1.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -33,6 +33,7 @@ For custom search forms, you have the option to choose from a widget, shortcode,
 * Customize SQL relation (AND/OR) between search terms
 * Customize order of search results
 * Control whether to match search query exactly or partially
+* Limit attachment results by mime type e.g. display only pdf files in search results.
 * Translation ready
 * Compatible with WPML
 
@@ -45,7 +46,7 @@ For custom search forms, you have the option to choose from a widget, shortcode,
 
 * Install WP Extended Search from the 'Plugins' section in your dashboard (Plugins > Add New > Search for 'WP Extended Search').
   Or
-  Download WP Extended Search and upload it to your webserver via your FTP application. The WordPress codex contains [instructions on how to do this here](http://codex.wordpress.org/Managing_Plugins#Manual_Plugin_Installation).
+  Download WP Extended Search and upload it to your webserver via your FTP application. The WordPress codex contains [instructions on how to do this here](https://wordpress.org/support/article/managing-plugins/#manual-plugin-installation-1).
 * Activate the plugin and navigate to (Settings > Extended Search) to choose your desired search settings.
 
 == Frequently Asked Questions ==
@@ -83,6 +84,15 @@ Also, you can add a complete custom template for each search setting in the them
 2.0 went through code refactoring and major feature updates. Please make a complete site backup before upgrading.
 
 == Changelog ==
+
+= 2.1.1 - 2022-03-19 =
+* Fixed recommendations notice issue with cache plugins.
+* Minor fixes.
+
+= 2.1 - 2022-03-13 =
+* Added new feature to limit attachments by mime type.
+* Fixed issue with add to cart link on search results page.
+* Other minor improvements.
 
 = 2.0.3 - 2021-08-04 =
 * Fixed search issue in WC settings > Advanced tab

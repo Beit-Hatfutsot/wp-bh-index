@@ -3,28 +3,10 @@
     "title": "Exhibit Attributes",
     "fields": [
         {
-            "key": "field_5eeb5b307c412",
-            "label": "Curator Number",
-            "name": "acf-exhibit_curator_number",
-            "type": "text",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
             "key": "field_5f8eaf9677928",
             "label": "Item ID",
             "name": "acf-exhibit_item_id",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 1,
@@ -35,15 +17,16 @@
                 "id": ""
             },
             "default_value": "",
+            "maxlength": "",
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "append": ""
         },
         {
             "key": "field_5eeb5b5d7c413",
             "label": "Must Know",
             "name": "acf-exhibit_must_know",
+            "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -63,6 +46,7 @@
             "key": "field_5eeb5bce7c414",
             "label": "Good for Guiding",
             "name": "acf-exhibit_good_for_guiding",
+            "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -82,6 +66,7 @@
             "key": "field_5eeb5c8df0449",
             "label": "More Sources",
             "name": "acf-exhibit_more_sources",
+            "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -101,6 +86,7 @@
             "key": "field_610f9e36ad99c",
             "label": "Embedded Video",
             "name": "acf-exhibit_embedded_video",
+            "aria-label": "",
             "type": "oembed",
             "instructions": "",
             "required": 0,
@@ -114,9 +100,27 @@
             "height": ""
         },
         {
+            "key": "field_635a9c9e9b381",
+            "label": "3D",
+            "name": "acf-exhibit_3d",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
             "key": "field_5eef091495dbb",
             "label": "Display Center",
             "name": "acf-exhibit_display_center",
+            "aria-label": "",
             "type": "field_group_foreign_key",
             "instructions": "",
             "required": 1,
@@ -149,5 +153,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1628420232
+    "show_in_rest": 0,
+    "modified": 1666883041
 }

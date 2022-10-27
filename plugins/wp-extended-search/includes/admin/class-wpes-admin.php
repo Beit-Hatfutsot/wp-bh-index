@@ -37,6 +37,8 @@ class WPES_Admin {
 		// Add docs and setting links.
 		add_filter( 'plugin_row_meta', array( $this, 'plugin_links' ), 10, 2 );
 		add_filter( 'plugin_action_links_' . WPES_FILENAME, array( $this, 'plugin_action_links' ) );
+		add_action( 'admin_notices', array( $this, 'recommended_plugins' ) );
+		add_action( 'wp_ajax_wpes_dismiss_recommendations', array( $this, 'dismiss_recommendations' ) );
 	}
 
 	/**
@@ -103,6 +105,9 @@ class WPES_Admin {
 		// Add Sections.
 		if ( empty( WPES()->wpes_settings['disabled'] ) ) {
 			add_settings_section( 'wp_es_section_1', __( 'Select Fields to include in WordPress default Search', 'wp-extended-search' ), array( $this, 'wp_es_section_content' ), 'wp-es' );
+			if ( in_array( 'attachment', WPES()->wpes_settings['post_types'], true ) ) {
+				add_settings_section( 'wp_es_section_media', __( 'Media Search Settings', 'wp-extended-search' ), null, 'wp-es' );
+			}
 			add_settings_section( 'wp_es_section_misc', __( 'Miscellaneous Settings', 'wp-extended-search' ), null, 'wp-es' );
 		} else {
 			add_settings_section( 'wp_es_section_disabled', __( 'WPES is disabled for global WordPress search. Select setting name to manage other search settings.', 'wp-extended-search' ), null, 'wp-es' );
@@ -130,6 +135,7 @@ class WPES_Admin {
 		add_settings_field( 'wp_es_exclude_older_results', __( 'Select date to exclude older results', 'wp-extended-search' ), array( $this, 'wp_es_exclude_results' ), 'wp-es', 'wp_es_section_misc', array( 'label_for' => 'es_exclude_date' ) );
 		add_settings_field( 'wp_es_number_of_posts', __( 'Posts per page', 'wp-extended-search' ), array( $this, 'wp_es_posts_per_page' ), 'wp-es', 'wp_es_section_misc', array( 'label_for' => 'es_posts_per_page' ) );
 		add_settings_field( 'wp_es_search_results_order', __( 'Search Results Order', 'wp-extended-search' ), array( $this, 'wp_es_search_results_order' ), 'wp-es', 'wp_es_section_misc', array( 'label_for' => 'es_search_results_order' ) );
+		add_settings_field( 'wp_es_media_types', __( 'Media Types', 'wp-extended-search' ), array( $this, 'wp_es_media_types' ), 'wp-es', 'wp_es_section_media' );
 	}
 
 	/**
@@ -155,7 +161,7 @@ class WPES_Admin {
 				array(
 					'admin_setting_page'      => admin_url( 'admin.php?page=wp-es' ),
 					'new_setting_url'         => admin_url( 'post-new.php?post_type=wpes_setting' ),
-					'wc_setting_alert_txt'    => __( 'The setting will be saved before you can make further changes.', 'wp-extended-search' ),
+					'wc_setting_alert_txt'    => __( 'The setting will be saved before you make any further changes.', 'wp-extended-search' ),
 					'select2_str_noResults'   => __( 'No results found.', 'wp-extended-search' ),
 					'select2_str_placeholder' => __( 'Select', 'wp-extended-search' ),
 				)
@@ -174,6 +180,9 @@ class WPES_Admin {
 				)
 			);
 		}
+
+		// Register script globally.
+		wp_enqueue_script( 'wpes_admin_global', WPES_ASSETS_URL . 'js/wp-es-admin-global.js', array(), false, true );
 	}
 
 	/**
@@ -480,6 +489,7 @@ class WPES_Admin {
 			}
 			?>
 			</select>
+			<p class="description"><?php _e( 'If you are selecting Media post type then save the settings once to enable more media settings.', 'wp-extended-search' ); ?></p>
 			<?php
 		} else {
 			?>
@@ -579,6 +589,28 @@ class WPES_Admin {
 	}
 
 	/**
+	 * Select mime type.
+	 *
+	 * @since 2.1
+	 */
+	public function wp_es_media_types() {
+		?>
+		<select multiple="multiple" class="wpes-select2" name="<?php echo WPES()->option_key_name; ?>[media_types][]">
+			<?php
+			foreach ( (array) get_allowed_mime_types() as $ext => $type ) {
+				?>
+				<option <?php echo $this->wp_es_checked( $type, WPES()->wpes_settings['media_types'], true ); ?> value="<?php echo esc_attr( $type ); ?>" >
+					<?php echo $ext; ?>
+				</option>
+				<?php
+			}
+			?>
+		</select>
+		<p class="description"><?php _e( 'Select the media types to limit the results by type. Leave blank to search all media types.', 'wp-extended-search' ); ?></p>
+		<?php
+	}
+
+	/**
 	 * Return checked or selected if value exist in array.
 	 *
 	 * @since 1.0
@@ -606,7 +638,7 @@ class WPES_Admin {
 	 * @return string disabled="disabled" or blank string.
 	 */
 	public function wp_es_disabled( $first_value, $second_value = true ) {
-		if ( $first_value == $second_value ) {
+		if ( $first_value == $second_value ) { // phpcs:ignore loose comparison
 			return 'disabled="disabled"';
 		}
 
@@ -647,7 +679,7 @@ class WPES_Admin {
 	public function plugin_action_links( $links ) {
 		if ( is_array( $links ) ) {
 			$links[] = '<a href="' . admin_url( 'options-general.php?page=wp-es' ) . '">'
-					. __( 'Settings', 'wp-extended-search' )
+					. __( 'Settings' )
 					. '</a>';
 		}
 
@@ -662,5 +694,42 @@ class WPES_Admin {
 	 */
 	public function get_menu_icon() {
 		return 'data:image/svg+xml;base64,' . 'PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDIwMDEwOTA0Ly9FTiIKICJodHRwOi8vd3d3LnczLm9yZy9UUi8yMDAxL1JFQy1TVkctMjAwMTA5MDQvRFREL3N2ZzEwLmR0ZCI+CjxzdmcgdmVyc2lvbj0iMS4wIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2ODMuMDAwMDAwIDQzNy4wMDAwMDAiPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsNDM3LjAwMDAwMCkgc2NhbGUoMC4xMDAwMDAsLTAuMTAwMDAwKSIKICAgICAgIGZpbGw9IiMwMDAwMDAiIHN0cm9rZT0ibm9uZSI+CiAgICAgICAgPHBhdGggZD0iTTQyNSA0MDYwIGwtMzUgLTM2IDAgLTE4MDUgMCAtMTgwNSAzMyAtMzIgMzMgLTMyIDYxMCAwIDYxMCAwIDMyIDMzCmMzMCAzMSAzMiAzNyAzMiAxMDggMCA3MiAtMSA3NiAtMzMgMTA3IGwtMzMgMzIgLTQ3NCAyIC00NzUgMyAwIDE1OTAgMCAxNTkwCjQ3NSAzIDQ3NCAyIDMzIDMyIGMzMiAzMSAzMyAzNSAzMyAxMDggMCA3MCAtMiA3OCAtMjggMTAzIGwtMjggMjcgLTYxMiAyCi02MTMgMyAtMzQgLTM1eiIvPgogICAgICAgIDxwYXRoIGQ9Ik01MjM3IDQwNjIgYy0yNCAtMjUgLTI3IC0zNSAtMjcgLTEwMyAwIC03MiAxIC03NiAzMyAtMTA3IGwzMyAtMzIKNDc3IDAgNDc3IDAgMCAtMTU5NSAwIC0xNTk1IC00NzggMCAtNDc4IDAgLTMyIC0zMyBjLTMwIC0zMSAtMzIgLTM3IC0zMiAtMTA4CjAgLTcyIDEgLTc2IDMzIC0xMDcgbDMzIC0zMiA2MTAgMCA2MTAgMCAzMiAzMyAzMiAzMyAwIDE4MDkgMCAxODA5IC0yNyAyOAotMjcgMjggLTYyMSAwIC02MjEgMCAtMjcgLTI4eiIvPgogICAgICAgIDxwYXRoIGQ9Ik0yODEyIDM0MTAgYy0yMTYgLTM5IC00MDQgLTE2OCAtNTI0IC0zNjAgLTI3MCAtNDMyIC0xMTkgLTEwMjMgMzE3Ci0xMjQwIDEyMiAtNjAgMTg5IC03NSAzMzUgLTc0IDEwNyAxIDEzNyA1IDIwNSAyNyAxMTAgMzcgMjEzIDk2IDI4OSAxNjcgbDY0CjYwIDcgLTM3IGM5IC01MiAzNyAtMTAzIDc3IC0xMzkgNDYgLTQzIDg3NCAtNjYzIDkyMyAtNjkxIDYwIC0zNCAxMzcgLTMyIDE5OAo2IDY5IDQ0IDEwMSA5OSAxMDUgMTgyIDQgNTYgMCA3NyAtMjEgMTIzIC0yNSA1NCAtMzUgNjIgLTQ5OSA0MDkgLTI4MCAyMTAKLTQ4OSAzNjAgLTUxMiAzNjcgLTIyIDcgLTU5IDEwIC04NyA3IC0yNyAtMyAtNDkgLTUgLTQ5IC00IDAgMiA5IDMwIDIxIDYyCjE0MyA0MDkgLTMyIDg3OSAtMzk3IDEwNjMgLTEzMyA2NyAtMzE1IDk2IC00NTIgNzJ6IG0yNzAgLTI3MCBjMTc2IC01NCAzMjIKLTIxNSAzNzUgLTQxMSAyNiAtOTkgMjIgLTI0NCAtMTEgLTM0NCAtNjAgLTE4NSAtMjEwIC0zMzUgLTM4MSAtMzgwIC0yNDMgLTYzCi00OTEgNTUgLTYwOCAyODggLTE2OSAzMzggLTEgNzU3IDM0MyA4NTMgNzIgMjAgMjA4IDE3IDI4MiAtNnoiLz4KICAgIDwvZz4KPC9zdmc+';
+	}
+
+	/**
+	 * Display recommended plugins notice.
+	 *
+	 * @since 2.1
+	 * @return NULL
+	 */
+	public function recommended_plugins() {
+		if ( ! current_user_can( 'manage_options' ) || defined( 'CLASSIC_AND_BLOCK_WIDGETS_FILENAME' ) || get_option( 'wp_es_remove_recommendations' ) ) {
+			return;
+		}
+		?>
+		<div id="wpes-dismiss-recommendations" class="notice notice-info is-dismissible">
+			<p>
+				<?php
+				$install_link = self_admin_url( 'plugin-install.php?s=%22Classic%20Widgets%20with%20Block-based%20Widgets%22&tab=search&type=term' );
+				/* translators: %1$s: Plugin name, %2$s: recommended plugin anchor tag. */
+				printf( __( '%1$s recommends installing %2$s plugin to manage widgets.', 'wp-extended-search' ), '<em>WP Extended Search</em>', '<a href="' . $install_link . '"><em>Classic Widgets with Block-based Widgets</em></a>' );
+				?>
+			</p>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Ajax callback to disable the recommendation notice permanently.
+	 *
+	 * @since 2.1
+	 */
+	public function dismiss_recommendations() {
+		wp_send_json_success(
+			array(
+				'notice_removed' => update_option( 'wp_es_remove_recommendations', true ),
+			)
+		);
+		exit;
 	}
 }

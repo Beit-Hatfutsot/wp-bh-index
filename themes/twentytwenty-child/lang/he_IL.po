@@ -1,18 +1,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wp-bh-index 1.0.0\n"
-"POT-Creation-Date: 2020-10-20 14:35+0300\n"
-"PO-Revision-Date: 2020-10-20 14:35+0300\n"
+"POT-Creation-Date: 2022-10-27 18:40+0300\n"
+"PO-Revision-Date: 2022-10-27 18:42+0300\n"
 "Last-Translator: Nir Goldberg <nir@htmline.com>\n"
 "Language-Team: Nir Goldberg <nir@htmline.com>\n"
 "Language: he_IL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.1\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? 2 : 3);\n"
+"X-Generator: Poedit 3.2.1\n"
 "X-Poedit-Basepath: ..\n"
-"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
-"2 : 3);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -22,6 +21,42 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-3: style.css\n"
 "X-Poedit-SearchPathExcluded-4: .sass-cache\n"
 "X-Poedit-SearchPathExcluded-5: node_modules\n"
+
+#: footer.php:40
+msgctxt "copyright date format"
+msgid "Y"
+msgstr ""
+
+#: footer.php:47
+msgid "https://wordpress.org/"
+msgstr ""
+
+#: footer.php:48
+msgid "Powered by WordPress"
+msgstr ""
+
+#: footer.php:58
+#, php-format
+msgid "To the top %s"
+msgstr ""
+
+#: footer.php:64
+#, php-format
+msgid "Up %s"
+msgstr ""
+
+#: functions/acf/acf-configuration.php:27
+#: functions/acf/acf-configuration.php:28
+msgid "Options"
+msgstr ""
+
+#: functions/acf/acf-configuration.php:34
+msgid "Footer Settings"
+msgstr ""
+
+#: functions/acf/acf-configuration.php:35
+msgid "Footer"
+msgstr ""
 
 #: functions/post-types.php:46
 msgid "Add New"
@@ -122,7 +157,7 @@ msgstr "%s עודכן/ה"
 msgid "Floors"
 msgstr "קומות"
 
-#: functions/post-types.php:91 functions/theme.php:107 functions/theme.php:517
+#: functions/post-types.php:91 functions/theme.php:122 functions/theme.php:573
 msgid "Floor"
 msgstr "קומה"
 
@@ -131,7 +166,7 @@ msgstr "קומה"
 msgid "Display Centers"
 msgstr "מוקדים"
 
-#: functions/post-types.php:137 functions/theme.php:94
+#: functions/post-types.php:137 functions/theme.php:109
 msgid "Display Center"
 msgstr "מוקד"
 
@@ -140,7 +175,7 @@ msgstr "מוקד"
 msgid "Exhibits"
 msgstr "מוצגים"
 
-#: functions/post-types.php:183 functions/theme.php:87
+#: functions/post-types.php:183 functions/theme.php:103
 msgid "Exhibit"
 msgstr "מוצג"
 
@@ -192,17 +227,38 @@ msgstr "האשטגים"
 msgid "Hashtag"
 msgstr "האשטג"
 
-#: functions/theme.php:127
-msgid "interactive"
-msgstr "אינטראקטיב"
+#: index.php:27
+#, fuzzy
+#| msgid "Search %s"
+msgid "Search:"
+msgstr "חפש %s"
 
-#: template-parts/display-center/display-center-content.php:50
-msgid "Location"
-msgstr "מיקום"
+#: index.php:35
+#, php-format
+msgid "We found %s result for your search."
+msgid_plural "We found %s results for your search."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
-#: template-parts/display-center/display-center-content.php:62
-msgid "Media"
-msgstr "מדיה"
+#: index.php:43
+msgid "We could not find any results for your search. You can give it another try through the search form below."
+msgstr ""
+
+#: index.php:46
+#, fuzzy
+#| msgid "No %s Found"
+msgid "Nothing Found"
+msgstr "לא נמצאו %s"
+
+#: index.php:105
+msgid "search again"
+msgstr ""
+
+#: template-parts/3d.php:26
+msgid "3D presentation"
+msgstr "תצוגת 3D"
 
 #: template-parts/entry-header.php:37
 msgid "Categories"
@@ -227,3 +283,12 @@ msgstr "שאלות מרכזיות"
 #: template-parts/tags.php:23
 msgid "Themes and Connections"
 msgstr "נושאים וקישורים"
+
+#~ msgid "interactive"
+#~ msgstr "אינטראקטיב"
+
+#~ msgid "Location"
+#~ msgstr "מיקום"
+
+#~ msgid "Media"
+#~ msgstr "מדיה"

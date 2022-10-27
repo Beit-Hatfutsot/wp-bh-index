@@ -1,145 +1,153 @@
-# Copyright (C) 2021 5um17
+# Copyright (C) 2022 5um17
 # This file is distributed under the same license as the WP Extended Search package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Extended Search 2.0.3\n"
+"Project-Id-Version: WP Extended Search 2.1.1\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/wp-extended-search\n"
-"POT-Creation-Date: 2021-08-04 16:27:55+00:00\n"
+"POT-Creation-Date: 2022-03-18 20:54:40+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: includes/admin/class-wpes-admin.php:70
-#: includes/admin/class-wpes-admin.php:650
+#: includes/admin/class-wpes-admin.php:72
+#: includes/admin/class-wpes-admin.php:682
 msgid "Settings"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:78
+#: includes/admin/class-wpes-admin.php:80
 msgid "Save Changes"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:80
+#: includes/admin/class-wpes-admin.php:82
 msgid "Reset to WP default"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:83
+#: includes/admin/class-wpes-admin.php:85
 msgid "Disable WPES for global search"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:86
+#: includes/admin/class-wpes-admin.php:88
 msgid "Enable WPES for global search"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:105
+#: includes/admin/class-wpes-admin.php:107
 msgid "Select Fields to include in WordPress default Search"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:106
+#: includes/admin/class-wpes-admin.php:109
+msgid "Media Search Settings"
+msgstr ""
+
+#: includes/admin/class-wpes-admin.php:111
 msgid "Miscellaneous Settings"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:108
+#: includes/admin/class-wpes-admin.php:113
 msgid ""
 "WPES is disabled for global WordPress search. Select setting name to manage "
 "other search settings."
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:112
-#: includes/admin/class-wpes-admin.php:113
+#: includes/admin/class-wpes-admin.php:117
+#: includes/admin/class-wpes-admin.php:118
 #: includes/admin/class-wpes-settings-cpt.php:38
 msgid "Setting Name"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:117
+#: includes/admin/class-wpes-admin.php:122
 msgid "WooCommerce"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:120
+#: includes/admin/class-wpes-admin.php:125
 msgid "General Search Setting"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:121
+#: includes/admin/class-wpes-admin.php:126
 msgid "Select Meta Key Names"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:122
+#: includes/admin/class-wpes-admin.php:127
 msgid "Select Taxonomies"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:123
+#: includes/admin/class-wpes-admin.php:128
 msgid "Author Setting"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:124
+#: includes/admin/class-wpes-admin.php:129
 msgid "Select Post Types"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:125
+#: includes/admin/class-wpes-admin.php:130
 msgid "Terms Relation Type"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:128
+#: includes/admin/class-wpes-admin.php:133
 msgid "Match the search term exactly"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:130
+#: includes/admin/class-wpes-admin.php:135
 msgid "Select date to exclude older results"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:131
+#: includes/admin/class-wpes-admin.php:136
 msgid "Posts per page"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:132
+#: includes/admin/class-wpes-admin.php:137
 msgid "Search Results Order"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:158
-msgid "The setting will be saved before you can make further changes."
+#: includes/admin/class-wpes-admin.php:138
+msgid "Media Types"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:159
+#: includes/admin/class-wpes-admin.php:164
+msgid "The setting will be saved before you make any further changes."
+msgstr ""
+
+#: includes/admin/class-wpes-admin.php:165
 msgid "No results found."
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:160
+#: includes/admin/class-wpes-admin.php:166
 msgid "Select"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:173
+#: includes/admin/class-wpes-admin.php:179
 msgid "copied"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:227
+#: includes/admin/class-wpes-admin.php:236
 msgid "WPES for global search has been disabled."
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:233
+#: includes/admin/class-wpes-admin.php:242
 msgid "WPES for global search has been enabled."
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:238
+#: includes/admin/class-wpes-admin.php:247
 msgid "Settings has been changed to WordPress default search setting."
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:243
+#: includes/admin/class-wpes-admin.php:252
 msgid "Select atleast one post type!"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:248
+#: includes/admin/class-wpes-admin.php:257
 msgid "Select atleast one setting to search!"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:253
+#: includes/admin/class-wpes-admin.php:262
 msgid "Date seems to be in invalid format!"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:267
+#: includes/admin/class-wpes-admin.php:276
 msgid ""
 "Every field have OR relation with each other. e.g. if someone search for "
 "\"5um17\" then search results will show those items which have \"5um17\" as "
@@ -147,66 +155,72 @@ msgid ""
 "selected."
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:301
-#: includes/class-wpes-search-widget.php:159
+#: includes/admin/class-wpes-admin.php:310
+#: includes/class-wpes-search-widget.php:167
 msgid "Global (default)"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:309
+#: includes/admin/class-wpes-admin.php:318
 msgid "Create New"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:314
+#: includes/admin/class-wpes-admin.php:323
 msgid "Edit Name"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:327
+#: includes/admin/class-wpes-admin.php:336
 msgid "Optimize for Products Search"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:340
+#: includes/admin/class-wpes-admin.php:349
 msgid "Search in Title"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:344
+#: includes/admin/class-wpes-admin.php:353
 msgid "Search in Content"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:348
+#: includes/admin/class-wpes-admin.php:357
 msgid "Search in Excerpt"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:373
+#: includes/admin/class-wpes-admin.php:382
 msgid "No meta key found!"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:422
+#: includes/admin/class-wpes-admin.php:431
 msgid "No public taxonomy found!"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:436
+#: includes/admin/class-wpes-admin.php:445
 msgid "Search in Author display name"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:437
+#: includes/admin/class-wpes-admin.php:446
 msgid ""
 "If checked then it will display those results whose Author \"Display name\" "
 "match the search terms."
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:486
+#: includes/admin/class-wpes-admin.php:492
+msgid ""
+"If you are selecting Media post type then save the settings once to enable "
+"more media settings."
+msgstr ""
+
+#: includes/admin/class-wpes-admin.php:496
 msgid "No public post type found!"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:499
+#: includes/admin/class-wpes-admin.php:509
 msgid "AND"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:500
+#: includes/admin/class-wpes-admin.php:510
 msgid "OR"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:505
+#: includes/admin/class-wpes-admin.php:515
 msgid ""
 "This option is disabled because you have selected \"Match the search term "
 "exactly\".  When using the exact match option, the sentence is not broken "
@@ -214,87 +228,87 @@ msgid ""
 "meaning."
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:507
+#: includes/admin/class-wpes-admin.php:517
 msgid ""
 "Type of query relation between search terms. e.g. someone searches for \"my "
 "query\" then define the relation between \"my\" and \"query\". The default "
 "value is AND."
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:522
+#: includes/admin/class-wpes-admin.php:532
 msgid ""
 "Contents will not appear in search results older than this date OR leave "
 "blank to disable this feature."
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:534
+#: includes/admin/class-wpes-admin.php:544
 msgid ""
 "Number of posts to display on search result page OR leave blank for default "
 "value."
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:546
+#: includes/admin/class-wpes-admin.php:556
 msgid "Relevance"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:547
+#: includes/admin/class-wpes-admin.php:557
 msgid "Date"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:548
+#: includes/admin/class-wpes-admin.php:558
 msgid "Last Modified Date"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:549
+#: includes/admin/class-wpes-admin.php:559
 msgid "Post Title"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:550
+#: includes/admin/class-wpes-admin.php:560
 msgid "Post Slug"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:551
+#: includes/admin/class-wpes-admin.php:561
 msgid "Post Type"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:552
+#: includes/admin/class-wpes-admin.php:562
 msgid "Number of Comments"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:553
+#: includes/admin/class-wpes-admin.php:563
 msgid "Random"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:558
+#: includes/admin/class-wpes-admin.php:568
 #. translators: %1$s: anchor tag opening, %2$s: anchor tag closed.
 msgid ""
 "Sort search results based on metadata of items. The default value is "
 "%1$sRelevance%2$s."
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:562
+#: includes/admin/class-wpes-admin.php:572
 msgid "Descending"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:563
+#: includes/admin/class-wpes-admin.php:573
 msgid "Ascending"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:564
+#: includes/admin/class-wpes-admin.php:574
 msgid ""
 "Order the sorted search items in Descending or Ascending. Default is "
 "Descending."
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:575
+#: includes/admin/class-wpes-admin.php:585
 msgid "Yes"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:576
+#: includes/admin/class-wpes-admin.php:586
 msgid "No"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:577
+#: includes/admin/class-wpes-admin.php:587
 msgid ""
 "Whether to match search term exactly or partially e.g. If someone search "
 "\"Word\" it will display items matching \"WordPress\" or \"Word\" but if "
@@ -302,12 +316,23 @@ msgid ""
 "default value is No."
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:631
+#: includes/admin/class-wpes-admin.php:609
+msgid ""
+"Select the media types to limit the results by type. Leave blank to search "
+"all media types."
+msgstr ""
+
+#: includes/admin/class-wpes-admin.php:663
 msgid "Docs"
 msgstr ""
 
-#: includes/admin/class-wpes-admin.php:634
+#: includes/admin/class-wpes-admin.php:666
 msgid "More Plugins"
+msgstr ""
+
+#: includes/admin/class-wpes-admin.php:715
+#. translators: %1$s: Plugin name, %2$s: recommended plugin anchor tag.
+msgid "%1$s recommends installing %2$s plugin to manage widgets."
 msgstr ""
 
 #: includes/admin/class-wpes-settings-cpt.php:37
@@ -360,73 +385,80 @@ msgstr ""
 msgid "Widget"
 msgstr ""
 
-#: includes/admin/class-wpes-settings-cpt.php:218
+#: includes/admin/class-wpes-settings-cpt.php:219
+#. translators: %1$s: URL, %2$s: Plugin Name.
+msgid ""
+"Go to <a href=\"%1$s\">Appearance &raquo; Classic Widgets</a> and add "
+"<em>%2$s Search Form</em> widget."
+msgstr ""
+
+#: includes/admin/class-wpes-settings-cpt.php:222
 #. translators: %1$s: URL, %2$s: Plugin Name.
 msgid ""
 "Go to <a href=\"%1$s\">Appearance &raquo; Widgets</a> and add <em>%2$s "
 "Search Form</em> widget."
 msgstr ""
 
-#: includes/admin/class-wpes-settings-cpt.php:223
+#: includes/admin/class-wpes-settings-cpt.php:228
 msgid "Shortcode"
 msgstr ""
 
-#: includes/admin/class-wpes-settings-cpt.php:225
-#: includes/admin/class-wpes-settings-cpt.php:232
-#: includes/admin/class-wpes-settings-cpt.php:244
+#: includes/admin/class-wpes-settings-cpt.php:230
+#: includes/admin/class-wpes-settings-cpt.php:237
+#: includes/admin/class-wpes-settings-cpt.php:249
 msgid "Click to copy."
 msgstr ""
 
-#: includes/admin/class-wpes-settings-cpt.php:226
+#: includes/admin/class-wpes-settings-cpt.php:231
 msgid ""
 "You can add this shortcode in post/page. See Parameters section below to "
 "add more attributes to this shotcode."
 msgstr ""
 
-#: includes/admin/class-wpes-settings-cpt.php:230
+#: includes/admin/class-wpes-settings-cpt.php:235
 msgid "PHP"
 msgstr ""
 
-#: includes/admin/class-wpes-settings-cpt.php:238
+#: includes/admin/class-wpes-settings-cpt.php:243
 msgid ""
 "Call this function after plugins_loaded action in functions.php or template "
 "files. See Parameters section below to pass more arguments to this function."
 msgstr ""
 
-#: includes/admin/class-wpes-settings-cpt.php:242
+#: includes/admin/class-wpes-settings-cpt.php:247
 msgid "HTML"
 msgstr ""
 
-#: includes/admin/class-wpes-settings-cpt.php:245
+#: includes/admin/class-wpes-settings-cpt.php:250
 msgid ""
 "If you are using custom search form template e.g. searchform.php then add "
 "this field before &#x3C;/form&#x3E; form closing tag."
 msgstr ""
 
-#: includes/admin/class-wpes-settings-cpt.php:249
+#: includes/admin/class-wpes-settings-cpt.php:254
 msgid "Parameters:"
 msgstr ""
 
-#: includes/admin/class-wpes-settings-cpt.php:258
+#: includes/admin/class-wpes-settings-cpt.php:263
 msgid "Default value:"
 msgstr ""
 
-#: includes/admin/class-wpes-settings-cpt.php:264
+#: includes/admin/class-wpes-settings-cpt.php:269
 msgid "Custom Search Templates:"
 msgstr ""
 
-#: includes/admin/class-wpes-settings-cpt.php:267
+#: includes/admin/class-wpes-settings-cpt.php:272
 msgid ""
 "You can use custom search templates to customize the search form appearance "
 "completely."
 msgstr ""
 
-#: includes/admin/class-wpes-settings-cpt.php:273
+#: includes/admin/class-wpes-settings-cpt.php:278
 #. translators: %1$s: Template name, %2$s: Setting ID.
 msgid "Create <code>%1$s</code> in your child theme, where %2$d is the setting ID."
 msgstr ""
 
-#: includes/admin/class-wpes-settings-cpt.php:281
+#: includes/admin/class-wpes-settings-cpt.php:286
 #. translators: %1$s: WP search form template name, %2$s: Plugin search
 #. template name.
 msgid ""
@@ -435,21 +467,21 @@ msgid ""
 "to <code>%2$s</code> with your modifications."
 msgstr ""
 
-#: includes/admin/class-wpes-settings-cpt.php:285
+#: includes/admin/class-wpes-settings-cpt.php:290
 msgid ""
 "Then use the WPES Search Widget, Shortcode, or PHP function to display the "
 "search form."
 msgstr ""
 
-#: includes/admin/class-wpes-settings-cpt.php:287
+#: includes/admin/class-wpes-settings-cpt.php:292
 msgid "Notes:"
 msgstr ""
 
-#: includes/admin/class-wpes-settings-cpt.php:289
+#: includes/admin/class-wpes-settings-cpt.php:294
 msgid "You can create many templates each per setting."
 msgstr ""
 
-#: includes/admin/class-wpes-settings-cpt.php:294
+#: includes/admin/class-wpes-settings-cpt.php:299
 #. translators: %s: search form hidden field name.
 msgid ""
 "Do not add <code>%s</code> hidden field to the custom template, it will be "
@@ -493,22 +525,38 @@ msgid "Search Form"
 msgstr ""
 
 #: includes/class-wpes-search-widget.php:131
+msgid "WPES is not compatible with block-based widgets yet."
+msgstr ""
+
+#: includes/class-wpes-search-widget.php:134
+#. translators: %s: Link to widgets screen.
 msgid ""
-"WPES is not compatible with block-based widgets yet. You can install %s "
-"plugin to enable classic widget screen. Also, you can send me a request in "
-"the plugin support forum if you like WPES to provide support for "
-"block-based widgets."
+"You can access the <a href=\"%s\">classic widgets</a> screen to manage the "
+"widgets."
+msgstr ""
+
+#: includes/class-wpes-search-widget.php:137
+#. translators: %s: WordPress plugin anchor tag.
+msgid ""
+"You can install %s plugin to enable classic widgets screen without losing "
+"new widgets screen."
 msgstr ""
 
 #: includes/class-wpes-search-widget.php:139
+msgid ""
+"Also, you can send a request in the plugin support forum if you like WPES "
+"to provide support for block-based widgets."
+msgstr ""
+
+#: includes/class-wpes-search-widget.php:147
 msgid "Title:"
 msgstr ""
 
-#: includes/class-wpes-search-widget.php:157
+#: includes/class-wpes-search-widget.php:165
 msgid "Setting Name:"
 msgstr ""
 
-#: includes/class-wpes-search-widget.php:172
+#: includes/class-wpes-search-widget.php:180
 #. translators: %s: URL
 msgid "To add new setting click <a href=\"%s\">here</a>."
 msgstr ""

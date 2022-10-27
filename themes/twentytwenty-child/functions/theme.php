@@ -4,9 +4,25 @@
  *
  * @author		Nir Goldberg
  * @package		functions
- * @version		1.2.0
+ * @version		1.3.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+/**
+ * bh_idx_site_logo
+ *
+ * This function displays the site logo
+ *
+ * @param	N/A
+ * @return	N/A
+ */
+function bh_idx_site_logo() {
+
+	$lang	= pll_current_language();
+	$logo	= get_stylesheet_directory_uri() . '/assets/images/anu-logo-' . $lang . '-colored.svg';
+
+	echo '<div class="site-logo faux-heading"><a href="' . get_bloginfo( 'url' ) . '" rel="home" aria-current="page"><img style="height: 44px;" src="' . $logo . '" alt="' . get_bloginfo( 'name' ) . '"></a><span class="screen-reader-text">' . get_bloginfo( 'name' ) . '</span></div>';
+}
 
 /**
  * bh_idx_header_meta
@@ -338,7 +354,7 @@ function bh_idx_get_exhibit_number( $post_id ) {
 		return '';
 
 	// return
-	return get_field( 'acf-exhibit_curator_number', $post_id );
+	return get_field( 'acf-exhibit_item_id', $post_id );
 
 }
 
@@ -563,3 +579,31 @@ function bh_idx_get_nav_menu_items( $items, $menu, $args ) {
 
 }
 add_filter( 'wp_get_nav_menu_items', 'bh_idx_get_nav_menu_items', 10, 3 );
+
+/**
+ * bh_idx_pre_get_posts
+ *
+ * This function order search results by floor number
+ *
+ * @param	$query (obj)
+ * @return	(obj)
+ */
+function bh_idx_pre_get_posts( $query ) {
+
+	// skip admin
+	if( is_admin() || ! $query->is_main_query() ) {
+		return $query;
+	}
+
+	if ( $query->is_search ) {
+
+		$query->set( 'orderby', array( 'meta_value' => 'DESC' ) );
+		$query->set( 'meta_key', 'acf-exhibit_display_center' );
+
+	}
+
+	// return
+	return $query;
+
+}
+add_action( 'pre_get_posts', 'bh_idx_pre_get_posts' );
