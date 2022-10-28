@@ -66,7 +66,7 @@ function acf_get_posts_foreign_key_values( $field ) {
 
 		$field_obj = get_field_object( $foreign_key, $posts->post->ID );
 
-		if ( $field_obj && $field_obj[ 'value' ] ) {
+		if ( $field_obj && ! is_null( $field_obj[ 'value' ] ) ) {
 			$arr[ $field_obj[ 'value' ] ] = $field_obj[ 'value' ];
 		}
 
