@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		functions
- * @version		1.3.0
+ * @version		1.3.1
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -215,7 +215,7 @@ function bh_idx_get_floor_number( $post_id ) {
  */
 function bh_idx_get_floor_permalink( $floor_number ) {
 
-	if ( ! defined( 'ACF_EXISTS' ) || ! ACF_EXISTS || ! $floor_number )
+	if ( ! defined( 'ACF_EXISTS' ) || ! ACF_EXISTS || ! ! is_null( $floor_number ) )
 		return '';
 
 	$args = array(
@@ -416,7 +416,7 @@ function bh_idx_get_display_centers( $post_id, $inner_number = false ) {
 	$floor_number		= ! $inner_number ? get_field( 'acf-floor_floor_number', $post_id ) : $post_id;
 	$display_centers	= array();
 
-	if ( ! $floor_number )
+	if ( is_null( $floor_number ) )
 		return $display_centers;
 
 	// get display centers
