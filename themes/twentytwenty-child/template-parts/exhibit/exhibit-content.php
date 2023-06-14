@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		twentytwenty-child/template-parts/exhibit
- * @version		1.0.0
+ * @version		1.3.2
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -38,7 +38,7 @@ $more_sources		= get_field( 'acf-exhibit_more_sources' );
 
 		<div class="entry-good-for-guiding toggle-section">
 
-			<h2 class="section-title"><?php _e( 'Good for Guiding', 'twentytwenty-child' ); ?><span class="close"></span></h2>
+			<h2 class="section-title"><?php _e( 'More Info', 'twentytwenty-child' ); ?><span class="close"></span></h2>
 
 			<div class="toggle-content close">
 				<?php echo $good_for_guiding; ?>

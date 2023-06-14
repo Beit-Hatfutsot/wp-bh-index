@@ -607,3 +607,30 @@ function bh_idx_pre_get_posts( $query ) {
 
 }
 add_action( 'pre_get_posts', 'bh_idx_pre_get_posts' );
+
+// disable WordPress auto big image scaling
+add_filter( 'big_image_size_threshold', '__return_false' );
+
+/**
+ * bh_idx_remove_image_sizes
+ *
+ * This function removes thumbnail sizes
+ *
+ * @param	N/A
+ * @return	N/A
+ */
+function bh_idx_remove_image_sizes() {
+
+	// vars
+	$sizes = array(
+		'medium_large',
+		'1536x1536',
+		'2048x2048',
+	);
+
+	foreach ( $sizes as $size ) {
+		remove_image_size( $size );
+	}
+
+}
+add_action( 'init', 'bh_idx_remove_image_sizes' );

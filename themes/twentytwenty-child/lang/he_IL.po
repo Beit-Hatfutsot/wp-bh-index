@@ -1,16 +1,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wp-bh-index 1.0.0\n"
-"POT-Creation-Date: 2022-10-27 18:40+0300\n"
-"PO-Revision-Date: 2022-10-27 18:42+0300\n"
+"POT-Creation-Date: 2023-06-14 15:43+0300\n"
+"PO-Revision-Date: 2023-06-14 15:43+0300\n"
 "Last-Translator: Nir Goldberg <nir@htmline.com>\n"
 "Language-Team: Nir Goldberg <nir@htmline.com>\n"
 "Language: he_IL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? 2 : 3);\n"
-"X-Generator: Poedit 3.2.1\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
+"2 : 3);\n"
+"X-Generator: Poedit 3.3.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c\n"
@@ -243,7 +244,9 @@ msgstr[2] ""
 msgstr[3] ""
 
 #: index.php:43
-msgid "We could not find any results for your search. You can give it another try through the search form below."
+msgid ""
+"We could not find any results for your search. You can give it another try "
+"through the search form below."
 msgstr ""
 
 #: index.php:46
@@ -269,8 +272,8 @@ msgid "Must Know"
 msgstr "חייב לדעת"
 
 #: template-parts/exhibit/exhibit-content.php:41
-msgid "Good for Guiding"
-msgstr "כדאי להדריך"
+msgid "More Info"
+msgstr "מידע נוסף"
 
 #: template-parts/exhibit/exhibit-content.php:55
 msgid "Additional Reading"
@@ -283,6 +286,9 @@ msgstr "שאלות מרכזיות"
 #: template-parts/tags.php:23
 msgid "Themes and Connections"
 msgstr "נושאים וקישורים"
+
+#~ msgid "Good for Guiding"
+#~ msgstr "כדאי להדריך"
 
 #~ msgid "interactive"
 #~ msgstr "אינטראקטיב"
