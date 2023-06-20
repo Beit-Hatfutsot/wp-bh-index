@@ -63,6 +63,31 @@
             "delay": 1
         },
         {
+            "key": "field_649021df5ac58",
+            "label": "Master Label Image",
+            "name": "acf-display-center_master_label_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        },
+        {
             "key": "field_5eef076205935",
             "label": "Floor",
             "name": "acf-display-center_floor",
@@ -100,5 +125,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1666814612
+    "modified": 1687167541
 }

@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		functions
- * @version		1.0.0
+ * @version		1.3.3
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -105,7 +105,7 @@ function bh_idx_register_floor_post_type() {
 		'menu_icon'					=> 'dashicons-building',
 		'capability_type'			=> 'post',
 		'hierarchical'				=> true,
-		'supports'					=> array( 'title' ),
+		'supports'					=> array( 'title', 'thumbnail' ),
 		'taxonomies'				=> array(),
 		'has_archive'				=> false,
 		'rewrite'					=> array( 'slug' => 'floor', 'with_front' => false ),

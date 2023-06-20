@@ -6,6 +6,7 @@
             "key": "field_5eea3b882608c",
             "label": "Floor Number",
             "name": "acf-floor_floor_number",
+            "aria-label": "",
             "type": "radio",
             "instructions": "",
             "required": 1,
@@ -31,6 +32,7 @@
             "key": "field_5eeb5fb2f1d8e",
             "label": "Text",
             "name": "acf-floor_text",
+            "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -47,9 +49,35 @@
             "delay": 1
         },
         {
+            "key": "field_649013db34421",
+            "label": "Text Picture",
+            "name": "acf-floor_text_picture",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "",
+            "library": "",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        },
+        {
             "key": "field_5eea3c1a2608d",
             "label": "Central Questions",
             "name": "acf-floor_central_questions",
+            "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -81,7 +109,8 @@
     "label_placement": "left",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1594506395
+    "show_in_rest": 0,
+    "modified": 1687165529
 }

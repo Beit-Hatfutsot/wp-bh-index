@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		functions
- * @version		1.3.1
+ * @version		1.3.3
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -407,7 +407,7 @@ function bh_idx_get_floors() {
  */
 function bh_idx_get_display_centers( $post_id, $inner_number = false ) {
 
-	if ( ! defined( 'ACF_EXISTS' ) || ! ACF_EXISTS || ! $post_id )
+	if ( ! defined( 'ACF_EXISTS' ) || ! ACF_EXISTS || is_null( $post_id ) )
 		return array();
 
 	/**

@@ -2,17 +2,39 @@
 	<custom-fields>
 		<custom-field action="copy">acf-floor_floor_number</custom-field>
 		<custom-field action="ignore">acf-floor_text</custom-field>
+		<custom-field action="copy">acf-floor_text_picture</custom-field>
 		<custom-field action="ignore">acf-floor_central_questions</custom-field>
 		<custom-field action="copy">acf-display-center_curator_number</custom-field>
 		<custom-field action="ignore">acf-display-center_one_line_description</custom-field>
 		<custom-field action="ignore">acf-display-center_master_label</custom-field>
+		<custom-field action="copy">acf-display-center_master_label_image</custom-field>
 		<custom-field action="copy">acf-display-center_floor</custom-field>
 		<custom-field action="copy">acf-exhibit_item_id</custom-field>
+		<custom-field action="ignore">acf-exhibit_label</custom-field>
+		<custom-field action="ignore">acf-exhibit_extended_label</custom-field>
+		<custom-field action="ignore">acf-exhibit_artist_name</custom-field>
+		<custom-field action="ignore">acf-exhibit_text_panel</custom-field>
+		<custom-field action="copy">acf-exhibit_text_panel_image</custom-field>
 		<custom-field action="ignore">acf-exhibit_must_know</custom-field>
 		<custom-field action="ignore">acf-exhibit_good_for_guiding</custom-field>
 		<custom-field action="ignore">acf-exhibit_more_sources</custom-field>
-		<custom-field action="ignore">acf-exhibit_embedded_video</custom-field>
+		<custom-field action="copy">acf-exhibit_makat</custom-field>
+		<custom-field action="copy">acf-exhibit_height</custom-field>
+		<custom-field action="copy">acf-exhibit_width</custom-field>
+		<custom-field action="copy">acf-exhibit_depth</custom-field>
+		<custom-field action="copy">acf-exhibit_weight</custom-field>
+		<custom-field action="ignore">acf-exhibit_status</custom-field>
+		<custom-field action="ignore">acf-exhibit_ownership</custom-field>
+		<custom-field action="copy">acf-exhibit_loan_end_date</custom-field>
+		<custom-field action="copy">acf-exhibit_date_out_of_exhibition</custom-field>
+		<custom-field action="ignore">acf-exhibit_conservation</custom-field>
+		<custom-field action="ignore">acf-exhibit_rights</custom-field>
+		<custom-field action="copy">acf-exhibit_display_image</custom-field>
 		<custom-field action="copy">acf-exhibit_3d</custom-field>
+		<custom-field action="copy">acf-exhibit_embedded_video</custom-field>
+		<custom-field action="ignore">acf-exhibit_app_number</custom-field>
+		<custom-field action="ignore">acf-exhibit_app_tours</custom-field>
+		<custom-field action="ignore">acf-exhibit_audioguide</custom-field>
 		<custom-field action="copy">acf-exhibit_display_center</custom-field>
 	</custom-fields>
 	<custom-types>
