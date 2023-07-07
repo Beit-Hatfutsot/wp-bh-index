@@ -4,16 +4,19 @@
  *
  * @author		Nir Goldberg
  * @package		twentytwenty-child
- * @version		1.3.3
+ * @version		1.3.4
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
  * ACF Field Groups
  */
-if( function_exists('acf_add_local_field_group') ):
+add_action( 'acf/include_fields', function() {
+	if ( ! function_exists( 'acf_add_local_field_group' ) ) {
+		return;
+	}
 
-acf_add_local_field_group(array(
+	acf_add_local_field_group( array(
 	'key' => 'group_5eea3b721d229',
 	'title' => 'Floor Attributes',
 	'fields' => array(
@@ -32,15 +35,16 @@ acf_add_local_field_group(array(
 				'id' => '',
 			),
 			'choices' => array(
+				0 => '0',
 				1 => '1',
 				2 => '2',
 				3 => '3',
 			),
+			'default_value' => '',
+			'return_format' => 'value',
 			'allow_null' => 0,
 			'other_choice' => 0,
-			'default_value' => '',
 			'layout' => 'vertical',
-			'return_format' => 'value',
 			'save_other_choice' => 0,
 		),
 		array(
@@ -127,9 +131,9 @@ acf_add_local_field_group(array(
 	'active' => true,
 	'description' => '',
 	'show_in_rest' => 0,
-));
+) );
 
-acf_add_local_field_group(array(
+	acf_add_local_field_group( array(
 	'key' => 'group_5eeb20389cdcd',
 	'title' => 'Display Center Attributes',
 	'fields' => array(
@@ -256,9 +260,9 @@ acf_add_local_field_group(array(
 	'active' => true,
 	'description' => '',
 	'show_in_rest' => 0,
-));
+) );
 
-acf_add_local_field_group(array(
+	acf_add_local_field_group( array(
 	'key' => 'group_5eeb2b3f5e360',
 	'title' => 'Exhibit Attributes',
 	'fields' => array(
@@ -820,9 +824,9 @@ acf_add_local_field_group(array(
 	'active' => true,
 	'description' => '',
 	'show_in_rest' => 0,
-));
+) );
 
-acf_add_local_field_group(array(
+	acf_add_local_field_group( array(
 	'key' => 'group_5fbaa093c0bef',
 	'title' => 'Footer Settings / Credit',
 	'fields' => array(
@@ -886,6 +890,5 @@ acf_add_local_field_group(array(
 	'description' => '',
 	'show_in_rest' => false,
 	'modified' => 1606066781,
-));
-
-endif;
+) );
+} );
