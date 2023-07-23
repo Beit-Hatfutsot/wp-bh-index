@@ -48,6 +48,22 @@
 				}
 			}
 		}
+
+		&.aside {
+			h3 {
+				.dashicons {
+					margin-left: 10px;
+					margin-right: 0;
+				}
+			}
+
+			ul {
+				li {
+					margin-left: auto;
+					margin-right: 0;
+				}
+			}
+		}
 	}
 }
 

@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		twentytwenty-child
- * @version		1.1.1
+ * @version		1.3.5
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -16,6 +16,14 @@ $lang	= pll_current_language();
 $credit	= get_field( 'acf-options_credit_' . $lang, 'option' );
 
 ?>
+
+		<script>
+
+			var js_globals = {};
+			js_globals.template_url	= "<?php echo TEMPLATE; ?>";
+			js_globals.ajaxurl		= "<?php echo admin_url( "admin-ajax.php" ); ?>";
+
+		</script>
 
 		<?php if ( $credit ) : ?>
 

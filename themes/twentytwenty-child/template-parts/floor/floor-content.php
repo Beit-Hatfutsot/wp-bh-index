@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		twentytwenty-child/template-parts/floor
- * @version		1.0.0
+ * @version		1.3.5
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -21,9 +21,9 @@ $central_questions	= get_field( 'acf-floor_central_questions' );
 
 <div class="entry-content">
 
-	<?php echo $floor_text; ?>
+	<?php echo bh_idx_is_visible( 'floor', 'text' ) ? $floor_text : ''; ?>
 
-	<?php if ( $central_questions ) { ?>
+	<?php if ( $central_questions && bh_idx_is_visible( 'floor', 'centralquestions' ) ) { ?>
 
 		<div class="entry-central-questions">
 
@@ -39,7 +39,9 @@ $central_questions	= get_field( 'acf-floor_central_questions' );
 		/**
 		 * display tags
 		 */
-		get_template_part( 'template-parts/tags' );
+		if ( bh_idx_is_visible( 'floor', 'themes' ) ) {
+			get_template_part( 'template-parts/tags' );
+		}
 	?>
 
 </div><!-- .entry-content -->

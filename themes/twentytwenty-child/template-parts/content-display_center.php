@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		twentytwenty-child/template-parts
- * @version		1.0.0
+ * @version		1.3.5
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -41,9 +41,9 @@ if ( ! defined( 'ACF_EXISTS' ) || ! ACF_EXISTS )
 
 				<?php
 					/**
-					 * display featured image
+					 * master label image
 					 */
-					get_template_part( 'template-parts/featured-image' );
+					get_template_part( 'template-parts/display-center/display-center-master-label-image' );
 				?>
 
 				<?php

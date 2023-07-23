@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wp-bh-index 1.0.0\n"
-"POT-Creation-Date: 2023-06-14 15:43+0300\n"
-"PO-Revision-Date: 2023-06-14 15:43+0300\n"
+"POT-Creation-Date: 2023-07-23 21:51+0300\n"
+"PO-Revision-Date: 2023-07-23 21:54+0300\n"
 "Last-Translator: Nir Goldberg <nir@htmline.com>\n"
 "Language-Team: Nir Goldberg <nir@htmline.com>\n"
 "Language: he_IL\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
 "2 : 3);\n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.3.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c\n"
@@ -23,25 +23,25 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-4: .sass-cache\n"
 "X-Poedit-SearchPathExcluded-5: node_modules\n"
 
-#: footer.php:40
+#: footer.php:48
 msgctxt "copyright date format"
 msgid "Y"
 msgstr ""
 
-#: footer.php:47
+#: footer.php:55
 msgid "https://wordpress.org/"
 msgstr ""
 
-#: footer.php:48
+#: footer.php:56
 msgid "Powered by WordPress"
 msgstr ""
 
-#: footer.php:58
+#: footer.php:66
 #, php-format
 msgid "To the top %s"
 msgstr ""
 
-#: footer.php:64
+#: footer.php:72
 #, php-format
 msgid "Up %s"
 msgstr ""
@@ -58,6 +58,14 @@ msgstr ""
 #: functions/acf/acf-configuration.php:35
 msgid "Footer"
 msgstr ""
+
+#: functions/config.php:60
+msgid "Guide"
+msgstr "מדריך"
+
+#: functions/config.php:61
+msgid "Curator"
+msgstr "אוצר"
 
 #: functions/post-types.php:46
 msgid "Add New"
@@ -163,7 +171,7 @@ msgid "Floor"
 msgstr "קומה"
 
 #: functions/post-types.php:136
-#: template-parts/floor/floor-display-centers.php:21
+#: template-parts/floor/floor-display-centers.php:19
 msgid "Display Centers"
 msgstr "מוקדים"
 
@@ -259,29 +267,110 @@ msgstr "לא נמצאו %s"
 msgid "search again"
 msgstr ""
 
-#: template-parts/3d.php:26
+#: template-parts/3d.php:29
 msgid "3D presentation"
 msgstr "תצוגת 3D"
 
-#: template-parts/entry-header.php:37
+#: template-parts/entry-header.php:72
 msgid "Categories"
 msgstr "קטגוריות"
 
-#: template-parts/exhibit/exhibit-content.php:29
+#: template-parts/exhibit/exhibit-content.php:52
+msgid "Text Panel"
+msgstr "פאנל טקסט"
+
+#: template-parts/exhibit/exhibit-content.php:64
 msgid "Must Know"
 msgstr "חייב לדעת"
 
-#: template-parts/exhibit/exhibit-content.php:41
+#: template-parts/exhibit/exhibit-content.php:76
 msgid "More Info"
 msgstr "מידע נוסף"
 
-#: template-parts/exhibit/exhibit-content.php:55
+#: template-parts/exhibit/exhibit-content.php:90
 msgid "Additional Reading"
 msgstr "לקריאה נוספת"
+
+#: template-parts/exhibit/exhibit-meta-data.php:19
+msgid "Artist Name"
+msgstr "שם אמן"
+
+#: template-parts/exhibit/exhibit-meta-data.php:24
+msgid "SKU"
+msgstr "מק\"ט"
+
+#: template-parts/exhibit/exhibit-meta-data.php:29
+msgid "Height"
+msgstr "גובה"
+
+#: template-parts/exhibit/exhibit-meta-data.php:34
+msgid "Width"
+msgstr "רוחב"
+
+#: template-parts/exhibit/exhibit-meta-data.php:39
+msgid "Depth"
+msgstr "עומק"
+
+#: template-parts/exhibit/exhibit-meta-data.php:44
+msgid "Weight"
+msgstr "משקל"
+
+#: template-parts/exhibit/exhibit-meta-data.php:49
+msgid "Status"
+msgstr "סטטוס"
+
+#: template-parts/exhibit/exhibit-meta-data.php:54
+msgid "Ownership"
+msgstr "בעלות"
+
+#: template-parts/exhibit/exhibit-meta-data.php:59
+msgid "Loan End Date"
+msgstr "תאריך השאלה"
+
+#: template-parts/exhibit/exhibit-meta-data.php:64
+msgid "Date out of Exhibition"
+msgstr "תאריך יציאה מהתערוכה"
+
+#: template-parts/exhibit/exhibit-meta-data.php:69
+msgid "Conservation"
+msgstr "שימור"
+
+#: template-parts/exhibit/exhibit-meta-data.php:74
+msgid "Rights"
+msgstr "זכויות"
+
+#: template-parts/exhibit/exhibit-meta-data.php:79
+msgid "App Number"
+msgstr "מספר אפליקציה"
+
+#: template-parts/exhibit/exhibit-meta-data.php:84
+msgid "App Tours"
+msgstr "סיורי אפליקציה"
+
+#: template-parts/exhibit/exhibit-meta-data.php:89
+msgid "Audio Guide"
+msgstr "מדריך קולי"
+
+#: template-parts/exhibit/exhibit-text-panel-image.php:36
+msgid "Text Panel Image"
+msgstr "תמונת פאנל טקסט"
 
 #: template-parts/floor/floor-content.php:30
 msgid "Central Questions"
 msgstr "שאלות מרכזיות"
+
+#: template-parts/modal-menu.php:125
+#, php-format
+msgid "Display Mode: %s"
+msgstr "תצוגה: %s"
+
+#: template-parts/modal-menu.php:129
+msgid "Change to display mode:"
+msgstr "החלפה לתצוגה:"
+
+#: template-parts/modal-menu.php:132
+msgid "--Please choose an option--"
+msgstr "--בחרו אפשרות--"
 
 #: template-parts/tags.php:23
 msgid "Themes and Connections"
@@ -292,9 +381,6 @@ msgstr "נושאים וקישורים"
 
 #~ msgid "interactive"
 #~ msgstr "אינטראקטיב"
-
-#~ msgid "Location"
-#~ msgstr "מיקום"
 
 #~ msgid "Media"
 #~ msgstr "מדיה"

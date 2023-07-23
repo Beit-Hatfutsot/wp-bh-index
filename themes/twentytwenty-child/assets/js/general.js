@@ -8,8 +8,11 @@ var $ = jQuery,
 		 */
 		self.params = {
 
+			// api
+			api : js_globals.template_url + '/api/',
+
 			// general
-			duration : 400,
+			duration : 400
 
 		};
 
@@ -24,6 +27,9 @@ var $ = jQuery,
 
 			// toggle sections
 			toggleSections();
+
+			// toggle display mode
+			$('#display-mode-select').on('change', toggleDisplayMode);
 
 		};
 
@@ -54,6 +60,39 @@ var $ = jQuery,
 
 				});
 			}
+
+		};
+
+		/**
+		 * toggleDisplayMode
+		 *
+		 * @since		1.0.0
+		 * @param		N/A
+		 * @return		N/A
+		 */
+		var toggleDisplayMode = function() {
+
+			$.ajax({
+
+				url		: self.params.api + 'display-mode.php',
+				type	: 'POST',
+				data	: {
+					mode	: this.value
+				},
+				error: function() {
+					return false;
+				},
+				success: function(result) {
+					var r = JSON.parse(result);
+					if (r.status == 0) {
+						location.reload();
+						return true;
+					}
+
+					return false;
+				}
+
+			});
 
 		};
 

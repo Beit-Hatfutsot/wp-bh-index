@@ -9,6 +9,13 @@
 
 ?>
 
+<?php
+
+	// globals
+	global $globals;
+
+?>
+
 <div class="menu-modal cover-modal header-footer-group" data-modal-target-string=".menu-modal">
 
 	<div class="menu-modal-inner modal-inner">
@@ -112,32 +119,24 @@
 
 			<div class="menu-bottom">
 
-				<?php if ( has_nav_menu( 'social' ) ) { ?>
+				<nav aria-label="<?php esc_attr_e( 'Display mode toggling', 'twentytwenty' ); ?>" role="navigation">
 
-					<nav aria-label="<?php esc_attr_e( 'Expanded Social links', 'twentytwenty' ); ?>" role="navigation">
-						<ul class="social-menu reset-list-style social-icons fill-children-current-color">
+					<div class="current-display-mode">
+						<?php echo sprintf( __( 'Display Mode: %s', 'twentytwenty-child' ), isset( $_COOKIE[ 'index_display_mode' ] ) ? $globals[ 'display' ][ $_COOKIE[ 'index_display_mode' ] ] : '' ); ?>
+					</div>
 
-							<?php
-							wp_nav_menu(
-								array(
-									'theme_location'  => 'social',
-									'container'       => '',
-									'container_class' => '',
-									'items_wrap'      => '%3$s',
-									'menu_id'         => '',
-									'menu_class'      => '',
-									'depth'           => 1,
-									'link_before'     => '<span class="screen-reader-text">',
-									'link_after'      => '</span>',
-									'fallback_cb'     => '',
-								)
-							);
-							?>
+					<form class="display-mode-toggle">
+						<label for="display-mode-select"><?php _e( 'Change to display mode:', 'twentytwenty-child' ); ?></label>
 
-						</ul>
-					</nav><!-- .social-menu -->
+						<select name="display-modes" id="display-mode-select">
+							<option value=""><?php _e( '--Please choose an option--', 'twentytwenty-child' ); ?></option>
+							<?php foreach ( $globals[ 'display' ] as $key => $value ) {
+								echo '<option value="' . $key . '"' . ( $_COOKIE[ 'index_display_mode' ] == $key ? ' selected="selected"' : '' ) . '>' . $value . '</option>';
+							} ?>
+						</select>
+					</form>
 
-				<?php } ?>
+				</nav><!-- .social-menu -->
 
 			</div><!-- .menu-bottom -->
 

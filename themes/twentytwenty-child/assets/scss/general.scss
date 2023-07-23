@@ -63,6 +63,31 @@
 			}
 		}
 	}
+
+	&.has-cover-image {
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		background-size: cover;
+
+		.entry-header-wrap {
+			.entry-header-inner {
+				padding: 1em 0;
+				background: rgba(255,255,255,.6);
+
+				.post-meta {
+					.meta-icon {
+						color: #000;
+					}
+
+					.meta-text {
+						&, a {
+							color: #000;
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 .archive-header {
@@ -80,6 +105,8 @@
 .container {
 	.post-inner {
 		.entry-content {
+			font-family: 'Alef', 'Open Sans', sans-serif;
+
 			& > div:first-child {
 				.section-title {
 					margin-top: 0;

@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		twentytwenty-child
- * @version		1.3.4
+ * @version		1.3.5
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -81,8 +81,8 @@ add_action( 'acf/include_fields', function() {
 				'class' => '',
 				'id' => '',
 			),
-			'return_format' => '',
-			'library' => '',
+			'return_format' => 'id',
+			'library' => 'all',
 			'min_width' => '',
 			'min_height' => '',
 			'min_size' => '',
@@ -211,7 +211,7 @@ add_action( 'acf/include_fields', function() {
 				'class' => '',
 				'id' => '',
 			),
-			'return_format' => 'array',
+			'return_format' => 'id',
 			'library' => 'all',
 			'min_width' => '',
 			'min_height' => '',
@@ -380,8 +380,8 @@ add_action( 'acf/include_fields', function() {
 				'class' => '',
 				'id' => '',
 			),
-			'return_format' => '',
-			'library' => '',
+			'return_format' => 'id',
+			'library' => 'all',
 			'min_width' => '',
 			'min_height' => '',
 			'min_size' => '',
@@ -681,7 +681,7 @@ add_action( 'acf/include_fields', function() {
 				'class' => '',
 				'id' => '',
 			),
-			'return_format' => 'array',
+			'return_format' => 'id',
 			'library' => 'all',
 			'min_width' => '',
 			'min_height' => '',

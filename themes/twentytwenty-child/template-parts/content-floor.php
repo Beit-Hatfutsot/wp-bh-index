@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		twentytwenty-child/template-parts
- * @version		1.0.0
+ * @version		1.3.5
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -37,12 +37,23 @@ if ( ! defined( 'ACF_EXISTS' ) || ! ACF_EXISTS )
 
 		<div class="post-inner aside">
 
-			<?php
-				/**
-				 * display centers
-				 */
-				get_template_part( 'template-parts/floor/floor-display-centers' );
-			?>
+			<div class="entry-content">
+
+				<?php
+					/**
+					 * text picture
+					 */
+					get_template_part( 'template-parts/floor/floor-text-picture' );
+				?>
+
+				<?php
+					/**
+					 * display centers
+					 */
+					get_template_part( 'template-parts/floor/floor-display-centers' );
+				?>
+
+			</div><!-- .entry-content -->
 
 		</div><!-- .aside -->
 

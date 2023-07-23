@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		twentytwenty-child/template-parts/floor
- * @version		1.2.3
+ * @version		1.3.5
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -16,18 +16,14 @@ if ( ! $display_centers )
 
 ?>
 
-<div class="entry-content">
+<h3><span class="dashicons dashicons-store"></span><?php _e( 'Display Centers', 'twentytwenty-child' ); ?></h3>
 
-	<h3><span class="dashicons dashicons-store"></span><?php _e( 'Display Centers', 'twentytwenty-child' ); ?></h3>
+<ul class="display-centers">
 
-	<ul class="display-centers">
+	<?php foreach ( $display_centers as $c ) {
 
-		<?php foreach ( $display_centers as $c ) {
+		echo '<li><a href="' . esc_url( get_permalink( $c->ID ) ) . '">' . $c->post_title . '</a></li>';
 
-			echo '<li><a href="' . esc_url( get_permalink( $c->ID ) ) . '">' . $c->post_title . '</a></li>';
+	} ?>
 
-		} ?>
-
-	</ul><!-- .display-centers -->
-
-</div><!-- .entry-content -->
+</ul><!-- .display-centers -->

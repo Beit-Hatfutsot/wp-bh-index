@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		functions
- * @version		1.3.3
+ * @version		1.3.5
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -607,6 +607,39 @@ function bh_idx_pre_get_posts( $query ) {
 
 }
 add_action( 'pre_get_posts', 'bh_idx_pre_get_posts' );
+
+/**
+ * bh_idx_is_visible
+ *
+ * This function checks whether specific field should be displayed according to current display mode cookie
+ *
+ * @param	$domain (string) [floor|display_center|exhibit]
+ * @param	$field (string)
+ * @return	(bool)
+ */
+function bh_idx_is_visible( $domain, $field ) {
+
+	// globals
+	global $globals;
+
+	// test mode
+	if ( true == $globals[ 'fields' ][ 'test_mode' ] )
+		return true;
+
+	if ( ! $domain || ! $field )
+		return false;
+
+	// vars
+	$display_mode	= isset( $_COOKIE[ 'index_display_mode' ] ) ? $_COOKIE[ 'index_display_mode' ] : 'guide';
+	$locations		= $globals[ 'fields' ][ $domain ][ $field ];
+
+	if ( empty( $locations ) )
+		return true;
+
+	// return
+	return in_array( $display_mode, $locations );
+
+}
 
 // disable WordPress auto big image scaling
 add_filter( 'big_image_size_threshold', '__return_false' );

@@ -4,9 +4,12 @@
  *
  * @author		Nir Goldberg
  * @package		twentytwenty-child/template-parts
- * @version		1.0.0
+ * @version		1.3.5
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+if ( 'exhibit' == get_post_type() && ! bh_idx_is_visible( 'exhibit', 'featuredimage' ) )
+	return;
 
 if ( ! has_post_thumbnail() )
 	return;

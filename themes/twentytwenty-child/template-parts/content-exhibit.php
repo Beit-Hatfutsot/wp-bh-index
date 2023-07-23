@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		twentytwenty-child/template-parts
- * @version		1.3.0
+ * @version		1.3.5
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -58,6 +58,20 @@ if ( ! defined( 'ACF_EXISTS' ) || ! ACF_EXISTS )
 					 * display 3D
 					 */
 					get_template_part( 'template-parts/3d' );
+				?>
+
+				<?php
+					/**
+					 * text panel image
+					 */
+					get_template_part( 'template-parts/exhibit/exhibit-text-panel-image' );
+				?>
+
+				<?php
+					/**
+					 * exhibit meta data
+					 */
+					get_template_part( 'template-parts/exhibit/exhibit-meta-data' );
 				?>
 
 			</div><!-- .entry-content -->

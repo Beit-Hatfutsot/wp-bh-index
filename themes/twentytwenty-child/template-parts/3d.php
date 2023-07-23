@@ -4,12 +4,15 @@
  *
  * @author		Nir Goldberg
  * @package		twentytwenty-child/template-parts
- * @version		1.3.0
+ * @version		1.3.5
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 if ( ! defined( 'ACF_EXISTS' ) || ! ACF_EXISTS )
     return;
+
+if ( ! bh_idx_is_visible( 'exhibit', 'el_3d' ) )
+	return;
 
 /**
  * Variables
