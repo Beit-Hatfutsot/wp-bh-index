@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		twentytwenty-child/template-parts/floor
- * @version		1.3.5
+ * @version		1.3.6
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -25,7 +25,7 @@ if ( ! $floor_text_picture )
 /**
  * Variables
  */
-$image_att	= wp_get_attachment_image_src( $floor_text_picture, 'large' );
+$image_att	= wp_get_attachment_image_src( $floor_text_picture, 'full' );
 $image_alt	= get_post_meta( $floor_text_picture, '_wp_attachment_image_alt', true );
 
 ?>

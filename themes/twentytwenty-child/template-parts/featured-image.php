@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		twentytwenty-child/template-parts
- * @version		1.3.5
+ * @version		1.3.6
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -22,7 +22,7 @@ $image_id	= get_post_thumbnail_id();
 if ( ! $image_id )
 	return;
 
-$image_att	= wp_get_attachment_image_src( $image_id, 'large' );
+$image_att	= wp_get_attachment_image_src( $image_id, 'full' );
 $image_alt	= get_post_meta( $image_id, '_wp_attachment_image_alt', true );
 
 ?>

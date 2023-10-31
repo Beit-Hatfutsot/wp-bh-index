@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		twentytwenty-child/template-parts/display-center
- * @version		1.3.5
+ * @version		1.3.6
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -25,7 +25,7 @@ if ( ! $display_center_master_label_image )
 /**
  * Variables
  */
-$image_att	= wp_get_attachment_image_src( $display_center_master_label_image, 'large' );
+$image_att	= wp_get_attachment_image_src( $display_center_master_label_image, 'full' );
 $image_alt	= get_post_meta( $display_center_master_label_image, '_wp_attachment_image_alt', true );
 
 ?>

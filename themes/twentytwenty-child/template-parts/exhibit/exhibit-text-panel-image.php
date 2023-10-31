@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		twentytwenty-child/template-parts/exhibit
- * @version		1.3.5
+ * @version		1.3.6
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -25,7 +25,7 @@ if ( ! $exhibit_text_panel_image )
 /**
  * Variables
  */
-$image_att	= wp_get_attachment_image_src( $exhibit_text_panel_image, 'large' );
+$image_att	= wp_get_attachment_image_src( $exhibit_text_panel_image, 'full' );
 $image_alt	= get_post_meta( $exhibit_text_panel_image, '_wp_attachment_image_alt', true );
 
 ?>
