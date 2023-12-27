@@ -39,3 +39,9 @@ require_once( 'functions/shortcodes.php' );
 
 // wp all import
 require_once( 'functions/wp-all-import.php' );
+
+// headless-cms config - define here directus credentials
+require_once( 'functions/headless-cms-config.php' );
+
+// headless-cms uploader
+require_once( 'functions/headless-cms-uploader.php' );
