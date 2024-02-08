@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		functions
- * @version		1.3.5
+ * @version		1.3.7
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -92,7 +92,7 @@ $globals = array(
 			'displayimage'			=> array( 'curator' ),
 			'el_3d'					=> array(),
 			'embeddedvideo'			=> array(),
-			'label'					=> array( 'curator' ),
+			'label'					=> array(),
 			'extendedlabel'			=> array( 'curator' ),
 			'artistname'			=> array( 'curator' ),
 			'textpanel'				=> array( 'curator' ),

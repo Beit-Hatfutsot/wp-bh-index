@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		twentytwenty-child/template-parts/floor
- * @version		1.3.5
+ * @version		1.3.7
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -27,7 +27,7 @@ $central_questions	= get_field( 'acf-floor_central_questions' );
 
 		<div class="entry-central-questions">
 
-			<h2 class="section-title"><?php _e( 'Central Questions', 'twentytwenty-child' ); ?></h2>
+			<h3 class="section-title"><?php _e( 'Central Questions', 'twentytwenty-child' ); ?></h3>
 
 			<?php echo $central_questions; ?>
 

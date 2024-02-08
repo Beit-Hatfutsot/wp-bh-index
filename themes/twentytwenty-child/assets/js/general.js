@@ -29,7 +29,10 @@ var $ = jQuery,
 			toggleSections();
 
 			// toggle display mode
-			$('#display-mode-select').on('change', toggleDisplayMode);
+			$('#display-mode-select').on('change', togglePasswordInput);
+
+			// curator display mode
+			$('.display-mode-toggle .submit').on('click', toggleDisplayMode, event);
 
 		};
 
@@ -50,7 +53,7 @@ var $ = jQuery,
 
 					// vars
 					var section = $(this),
-						btn = section.children('h2').children('span'),
+						btn = section.children('h3').children('span'),
 						content = section.children('.toggle-content');
 
 					btn.click(function() {
@@ -64,22 +67,60 @@ var $ = jQuery,
 		};
 
 		/**
+		 * togglePasswordInput
+		 *
+		 * @since		1.0.0
+		 * @param		N/A
+		 * @return		N/A
+		 */
+		var togglePasswordInput = function() {
+
+			// vars
+			var select			= $('.display-mode-toggle #display-mode-select'),
+				mode			= this.value,
+				curatorFrame	= $('.display-mode-toggle #curator-mode-pass'),
+				input			= $('.display-mode-toggle #display-mode-pass'),
+				btn				= $('.display-mode-toggle .submit'),
+				notification	= $('.display-mode-toggle .notification');
+
+			notification.hide();
+
+			if ('curator' == mode) {
+				curatorFrame.slideDown();
+			} else {
+				curatorFrame.slideUp();
+			}
+
+		};
+
+		/**
 		 * toggleDisplayMode
 		 *
 		 * @since		1.0.0
 		 * @param		N/A
 		 * @return		N/A
 		 */
-		var toggleDisplayMode = function() {
+		var toggleDisplayMode = function(event) {
+
+			event.preventDefault();
+
+			var select			= $('.display-mode-toggle #display-mode-select'),
+				mode			= select.find(":selected").val(),
+				pass			= $('.display-mode-toggle #display-mode-pass').val(),
+				notification	= $('.display-mode-toggle .notification');
+
+			notification.hide();
 
 			$.ajax({
 
 				url		: self.params.api + 'display-mode.php',
 				type	: 'POST',
 				data	: {
-					mode	: this.value
+					mode	: mode,
+					pass	: pass
 				},
 				error: function() {
+					notification.html('Error!').show();
 					return false;
 				},
 				success: function(result) {
@@ -87,6 +128,9 @@ var $ = jQuery,
 					if (r.status == 0) {
 						location.reload();
 						return true;
+					}
+					else {
+						notification.html('Wrong password...').show();
 					}
 
 					return false;

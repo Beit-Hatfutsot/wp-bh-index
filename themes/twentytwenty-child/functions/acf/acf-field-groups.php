@@ -828,8 +828,25 @@ add_action( 'acf/include_fields', function() {
 
 	acf_add_local_field_group( array(
 	'key' => 'group_5fbaa093c0bef',
-	'title' => 'Footer Settings / Credit',
+	'title' => 'Settings',
 	'fields' => array(
+		array(
+			'key' => 'field_65c4ff9b7fab7',
+			'label' => 'Credit',
+			'name' => '',
+			'aria-label' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'left',
+			'endpoint' => 0,
+		),
 		array(
 			'key' => 'field_5fbaa0a66f3f5',
 			'label' => 'Credit (EN)',
@@ -870,6 +887,43 @@ add_action( 'acf/include_fields', function() {
 			'media_upload' => 0,
 			'delay' => 1,
 		),
+		array(
+			'key' => 'field_65c4ff6b7fab6',
+			'label' => 'Display Mode',
+			'name' => '',
+			'aria-label' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'left',
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_65c4ffc77fab8',
+			'label' => 'Curator Password',
+			'name' => 'acf-options_curator_password',
+			'aria-label' => '',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'maxlength' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+		),
 	),
 	'location' => array(
 		array(
@@ -888,7 +942,6 @@ add_action( 'acf/include_fields', function() {
 	'hide_on_screen' => '',
 	'active' => true,
 	'description' => '',
-	'show_in_rest' => false,
-	'modified' => 1606066781,
+	'show_in_rest' => 0,
 ) );
 } );

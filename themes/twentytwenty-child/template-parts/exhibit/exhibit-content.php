@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		twentytwenty-child/template-parts/exhibit
- * @version		1.3.5
+ * @version		1.3.7
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -27,7 +27,7 @@ $more_sources		= get_field( 'acf-exhibit_more_sources' );
 
 	<?php if ( $label && bh_idx_is_visible( 'exhibit', 'label' ) ) { ?>
 
-		<div class="entry-lebel is-style-wide">
+		<div class="entry-lebel">
 
 			<h2 class="section-title"><?php echo str_replace( [ '<p>', '</p>' ], '', $label ); ?></h2>
 
@@ -49,7 +49,7 @@ $more_sources		= get_field( 'acf-exhibit_more_sources' );
 
 		<div class="entry-text-panel">
 
-			<h2 class="section-title"><?php _e( 'Text Panel', 'twentytwenty-child' ); ?></h2>
+			<h3 class="section-title"><?php _e( 'Text Panel', 'twentytwenty-child' ); ?></h3>
 
 			<?php echo $text_panel; ?>
 
@@ -61,7 +61,7 @@ $more_sources		= get_field( 'acf-exhibit_more_sources' );
 
 		<div class="entry-must-know">
 
-			<h2 class="section-title"><?php _e( 'Must Know', 'twentytwenty-child' ); ?></h2>
+			<h3 class="section-title"><?php _e( 'Must Know', 'twentytwenty-child' ); ?></h3>
 
 			<?php echo $must_know; ?>
 
@@ -73,7 +73,7 @@ $more_sources		= get_field( 'acf-exhibit_more_sources' );
 
 		<div class="entry-good-for-guiding toggle-section">
 
-			<h2 class="section-title"><?php _e( 'More Info', 'twentytwenty-child' ); ?><span class="close"></span></h2>
+			<h3 class="section-title"><?php _e( 'More Info', 'twentytwenty-child' ); ?><span class="close"></span></h3>
 
 			<div class="toggle-content close">
 				<?php echo $good_for_guiding; ?>
@@ -87,7 +87,7 @@ $more_sources		= get_field( 'acf-exhibit_more_sources' );
 
 		<div class="entry-more-sources toggle-section">
 
-			<h2 class="section-title"><?php _e( 'Additional Reading', 'twentytwenty-child' ); ?><span class="close"></span></h2>
+			<h3 class="section-title"><?php _e( 'Additional Reading', 'twentytwenty-child' ); ?><span class="close"></span></h3>
 
 			<div class="toggle-content close">
 				<?php echo $more_sources; ?>

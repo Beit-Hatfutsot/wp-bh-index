@@ -4,7 +4,7 @@
  *
  * @package WordPress
  * @subpackage Twenty_Twenty
- * @since Twenty Twenty 1.0
+ * @since Twenty Twenty 1.3.7
  */
 
 ?>
@@ -127,13 +127,20 @@
 
 					<form class="display-mode-toggle">
 						<label for="display-mode-select"><?php _e( 'Change to display mode:', 'twentytwenty-child' ); ?></label>
-
 						<select name="display-modes" id="display-mode-select">
 							<option value=""><?php _e( '--Please choose an option--', 'twentytwenty-child' ); ?></option>
 							<?php foreach ( $globals[ 'display' ] as $key => $value ) {
 								echo '<option value="' . $key . '"' . ( $_COOKIE[ 'index_display_mode' ] == $key ? ' selected="selected"' : '' ) . '>' . $value . '</option>';
 							} ?>
 						</select>
+
+						<div id="curator-mode-pass">
+							<label for="display-mode-pass"><?php _e( 'Enter password:', 'twentytwenty-child' ); ?></label>
+							<input type="password" name="display-mode-pass" id="display-mode-pass" />
+						</div>
+
+						<button class="submit"><?php _e( 'Send', 'twentytwenty-child' ); ?></button>
+						<div class="notification"></div>
 					</form>
 
 				</nav><!-- .social-menu -->
